@@ -25,6 +25,8 @@ services:
       - MYSQL_DATABASE=radius
       - MYSQL_USER=radius
       - MYSQL_PASSWORD=corpoh10
+    networks:
+      - interna
     volumes:
       - "radius_data:/var"
       - "radius_sites:/etc"
@@ -64,22 +66,9 @@ services:
       - '--web.enable-admin-api'
       - '--storage.tsdb.retention.time=7d'
       - '--web.config.file=/etc/prometheus/web.yml'
-#    ports:
-#      - '9090:9090'
     networks:
       - interna
     restart: always
-
-#  telegraf:
-#    image: telegraf
-#    container_name: telegraf
-#    restart: always
-#    volumes:
-#    - telegraf_data:/etc/telegraf/
-#    networks:
-#      - interna
-#    depends_on:
-#      - radius-mysql
 
   telegraf:
     build:

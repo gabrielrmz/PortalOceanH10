@@ -504,3 +504,86 @@ docker logs radius-mysql --tail 50
 clear
 docker logs radius-mysql --tail 50
 nano docker-compose.yml
+docker logs telegraf --tail 100
+docker network ls
+ddocker network ls
+docker network ls
+docker network inspect root_interna
+docker logs telegraf --tail 5
+cd /var/lib/docker/volumes/root_telegraf_data/_data
+git pull
+cd 
+docker compose restart
+docker compose ps
+nano docker-compose.yml
+cd prometheus/
+nano prometheus.yml 
+cd ..
+git add .
+docker compose restart
+docker compose ps
+docker logs telegraf --tail 5
+docker logs telegraf --tail 10
+docker logs telegraf --tail 50
+docker network ls
+docker network inspect root_interna
+docker exec -it telegraf sh
+nc -zv 172.18.0.3 3306
+docker exec -it radius-mysql mysql -uroot -p
+docker exec -it radius-mysql mariadb -uroot -p
+docker logs -f telegraf
+nc -zv 172.18.0.3 3306
+docker exec -it telegraf apk add --no-cache busybox-extras
+docker exec -it telegraf nc -zv radius-mysql 3306
+docker exec -it radius-mysql ss -tlnp | grep 3306
+docker compose down 
+ls
+nano docker-compose.yml
+nano Dockerfile.telegraf
+nano docker-compose.yml
+docker compose ps
+docker compose up -d
+ls
+curl -o wait-for-it.sh https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh
+chmod +x wait-for-it.sh
+docker compose up -d
+dokcer compose ps
+docker compose ps
+docker logs telegraf --tail 5
+docker logs telegraf --tail 50
+ls
+cd prometheus/
+nano prometheus.yml 
+cd ...
+cd ..
+ls
+docker logs telegraf --tail 50
+cd /var/lib/docker/volumes/root_telegraf_data/_data
+git pull
+cd 
+docker compose restart
+cd /var/lib/docker/volumes/root_telegraf_data/_data
+git pull
+cd 
+docker compose restart
+docker compose ps
+cd /var/lib/docker/volumes/root_telegraf_data/_data
+git pull
+cd
+docker compose restart
+git init 
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/gabrielrmz/PortalOceanH10.git
+git push -u origin main
+cd /var/lib/docker/volumes/root_telegraf_data/_data
+git pull
+cd 
+docker compose restart
+docker compose ps
+cd /var/lib/docker/volumes/root_telegraf_data/_data
+git pull
+cd 
+docker compose restart
+docker compose ps

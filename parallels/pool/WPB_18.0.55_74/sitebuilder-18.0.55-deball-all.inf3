@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<build confver="3.11" os_name="Linux" os_vendor="Debian" os_version="all" os_release_name="all" os_arch="all" environment="" build_dir="dist-deb-Debian-all-all" send_feedback="true" uninstall_support="yes" gpgcheck="yes" apt_source="" persistent_apt_source="  all all">
+    <product id="sitebuilder">
+        <keypackages>
+            <keypackage>pp-sitebuilder</keypackage>
+        </keypackages>
+        <release id="WPB_18_0_55" name="WPB 18.0.55" version="18.0.55" upgrade_allowed_from="5.0.0" />
+    </product>
+    <component name="sitebuilder" description="Web Presence Builder">
+        <package name="pp-sitebuilder" version="18.0.55" release="v.ubuntu.18.04+p18.0.56.0+t230920.1900" file="base/pp-sitebuilder_18.0.55-v.ubuntu.18.04+p18.0.56.0+t230920.1900_all.deb" size="1412" buildtime="0" md5="2b05f08a15780efad5c7b85ac353b505" arch="all" />
+        <package name="wpb-core" version="18.0.55" release="v.ubuntu.18.04+p18.0.56.0+t230920.1900" file="base/wpb-core_18.0.55-v.ubuntu.18.04+p18.0.56.0+t230920.1900_all.deb" size="26020208" buildtime="0" md5="f9722b055e0b0ce75a7ac6119ba57883" arch="all" />
+        <package name="wpb-designs-00" version="18.0.55" release="v.ubuntu.18.04+p18.0.56.0+t230920.1900" file="base/wpb-designs-00_18.0.55-v.ubuntu.18.04+p18.0.56.0+t230920.1900_all.deb" size="2136724" buildtime="0" md5="fc605da26fba858cb21fb007eb48267d" arch="all" />
+        <package name="wpb-designs-01" version="18.0.55" release="v.ubuntu.18.04+p18.0.56.0+t230920.1900" file="base/wpb-designs-01_18.0.55-v.ubuntu.18.04+p18.0.56.0+t230920.1900_all.deb" size="2467260" buildtime="0" md5="c07b1480dc93e4c8c3ae0da8bfcae33e" arch="all" />
+        <package name="wpb-designs-03" version="18.0.55" release="v.ubuntu.18.04+p18.0.56.0+t230920.1900" file="base/wpb-designs-03_18.0.55-v.ubuntu.18.04+p18.0.56.0+t230920.1900_all.deb" size="2679232" buildtime="0" md5="095cc91829e93ecbc6877aff958db837" arch="all" />
+        <package name="wpb-designs-04" version="18.0.55" release="v.ubuntu.18.04+p18.0.56.0+t230920.1900" file="base/wpb-designs-04_18.0.55-v.ubuntu.18.04+p18.0.56.0+t230920.1900_all.deb" size="3022384" buildtime="0" md5="8a27ee6add6ece95cc9b3774230d0a3d" arch="all" />
+        <package name="wpb-designs-05" version="18.0.55" release="v.ubuntu.18.04+p18.0.56.0+t230920.1900" file="base/wpb-designs-05_18.0.55-v.ubuntu.18.04+p18.0.56.0+t230920.1900_all.deb" size="2432480" buildtime="0" md5="4db0a6a9212e579cc41ffd45a9e7457c" arch="all" />
+        <package name="wpb-designs-07" version="18.0.55" release="v.ubuntu.18.04+p18.0.56.0+t230920.1900" file="base/wpb-designs-07_18.0.55-v.ubuntu.18.04+p18.0.56.0+t230920.1900_all.deb" size="2679680" buildtime="0" md5="1909983a189acb673e789e6cb73fe9c1" arch="all" />
+        <package name="wpb-designs-09" version="18.0.55" release="v.ubuntu.18.04+p18.0.56.0+t230920.1900" file="base/wpb-designs-09_18.0.55-v.ubuntu.18.04+p18.0.56.0+t230920.1900_all.deb" size="3212132" buildtime="0" md5="c62942caad9c0916882013aeb6189d49" arch="all" />
+        <package name="wpb-designs-12" version="18.0.55" release="v.ubuntu.18.04+p18.0.56.0+t230920.1900" file="base/wpb-designs-12_18.0.55-v.ubuntu.18.04+p18.0.56.0+t230920.1900_all.deb" size="2633108" buildtime="0" md5="4b846f4fc712f7f82642aea287a5de62" arch="all" />
+        <package name="wpb-designs-14" version="18.0.55" release="v.ubuntu.18.04+p18.0.56.0+t230920.1900" file="base/wpb-designs-14_18.0.55-v.ubuntu.18.04+p18.0.56.0+t230920.1900_all.deb" size="2735336" buildtime="0" md5="b685217318db647a6dfd018e7b43c056" arch="all" />
+        <package name="wpb-designs-20" version="18.0.55" release="v.ubuntu.18.04+p18.0.56.0+t230920.1900" file="base/wpb-designs-20_18.0.55-v.ubuntu.18.04+p18.0.56.0+t230920.1900_all.deb" size="2790132" buildtime="0" md5="40b5edc75133a919924d0a779d994f90" arch="all" />
+        <package name="wpb-headers" version="18.0.55" release="v.ubuntu.18.04+p18.0.56.0+t230920.1900" file="base/wpb-headers_18.0.55-v.ubuntu.18.04+p18.0.56.0+t230920.1900_all.deb" size="135809336" buildtime="0" md5="2038de6e5b54f34b7f4ac23522db895d" arch="all" />
+    </component>
+    <updates updates_dir="update-deb-Debian-all-all" headers_file="" />
+    <thirdparty thirdparty_dir="thirdparty-deb-Debian-all-all" />
+    <force_remove_packages />
+</build>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon id="php83" name="PHP v 8.3">
+	<release id="PHP83_17" name="PHP v 8.3" version="8.3">
+		<compatibility_info>
+			<compatible product_id="plesk" from_version="18.0.57" to_version="18.0.99" />
+		</compatibility_info>
+
+		<build os_name="Linux" os_vendor="RedHat" os_version="el7" os_arch="x86_64" config="pool/PHP_8.3.19_86/php83-cos7-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="VZLinux" os_version="7" os_arch="x86_64" config="pool/PHP_8.3.19_86/php83-cos7-x86_64.inf3" />
+	</release>
+</addon>

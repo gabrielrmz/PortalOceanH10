@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon id="php81" name="PHP v 8.2">
+	<release id="PHP81_17" name="PHP v 8.2" version="8.2">
+		<compatibility_info>
+			<compatible product_id="plesk" from_version="18.0.48" to_version="18.0.99" />
+		</compatibility_info>
+<!--
+		<build os_name="Linux" os_vendor="Ubuntu" os_version="18.04" os_arch="x86_64" config="pool/PHP_8.2.6_37/php82-ubt18.04-x86_64.inf3" />
+-->
+
+                <build os_name="Linux" os_vendor="RedHat" os_version="el7" os_arch="x86_64" config="pool/PHP_8.2.28_137/php82-cos7-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="VZLinux" os_version="7" os_arch="x86_64" config="pool/PHP_8.2.28_137/php82-cos7-x86_64.inf3" />
+	</release>
+</addon>

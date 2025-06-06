@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon id="php74" name="PHP v 7.4">
+
+	<release id="PHP_7_4" name="PHP v 7.4" version="7.4.33">
+		<compatibility_info>
+			<compatible product_id="plesk" from_version="18.0.21" to_version="18.0.99" />
+		</compatibility_info>
+		<build os_name="Linux" os_vendor="AlmaLinux" os_version="8" os_arch="x86_64" config="php74-rhel8-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="AlmaLinux" os_version="9" os_arch="x86_64" config="php74-rhel9-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="CentOS" os_version="7" os_arch="x86_64" config="php74-cos7-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="CentOS" os_version="8" os_arch="x86_64" config="php74-rhel8-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="CloudLinux" os_version="7" os_arch="x86_64" config="php74-cos7-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="CloudLinux" os_version="8" os_arch="x86_64" config="php74-rhel8-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="CloudLinux" os_version="9" os_arch="x86_64" config="php74-rhel9-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Debian" os_version="10.0" os_arch="x86_64" config="php74-deb10.0-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Debian" os_version="11.0" os_arch="x86_64" config="php74-deb11.0-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Debian" os_version="12.0" os_arch="x86_64" config="php74-deb12.0-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="RedHat" os_version="el7" os_arch="x86_64" config="php74-cos7-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="RedHat" os_version="el8" os_arch="x86_64" config="php74-rhel8-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="RedHat" os_version="el9" os_arch="x86_64" config="php74-rhel9-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Rocky" os_version="8" os_arch="x86_64" config="php74-rhel8-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Ubuntu" os_version="18.04" os_arch="x86_64" config="php74-ubt18.04-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Ubuntu" os_version="20.04" os_arch="x86_64" config="php74-ubt20.04-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Ubuntu" os_version="22.04" os_arch="aarch64" config="php74-ubt22.04-aarch64.inf3" />
+		<build os_name="Linux" os_vendor="Ubuntu" os_version="22.04" os_arch="x86_64" config="php74-ubt22.04-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Ubuntu" os_version="24.04" os_arch="x86_64" config="php74-ubt24.04-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="VZLinux" os_version="7" os_arch="x86_64" config="php74-cos7-x86_64.inf3" />
+	</release>
+</addon>

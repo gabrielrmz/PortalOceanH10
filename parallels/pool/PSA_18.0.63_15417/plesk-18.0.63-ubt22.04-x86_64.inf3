@@ -1,0 +1,922 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<build_1 confver="3.11" os_name="Linux" os_vendor="Ubuntu" os_version="22.04" os_release_name="jammy" os_arch="x86_64" environment="" build_dir="dist-deb-Ubuntu-22.04-x86_64" send_feedback="true" uninstall_support="yes" gpgcheck="yes" apt_source="  jammy all" persistent_apt_source="  jammy extras">
+    <exact_required_autoinstaller version="3.63.0" binary_directory="Installer/3.63.0" />
+    <required_autoinstaller version="3.18.12" binary_directory="Parallels_Installer" />
+    <bootstrapper>
+        <package name="pp18.0.63-bootstrapper" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1332" file="bootstrapper/pp18.0.63-bootstrapper_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1332_amd64.deb" size="219116" buildtime="0" md5="588fcb78a994ca459c76686101b29568" classes="aspect=panel" arch="amd64" />
+        <package name="sw-engine-cli-6.63" version="6.63.0" release="ubuntu.22.04.240730.0658" file="bootstrapper/sw-engine-cli-6.63_6.63.0-ubuntu.22.04.240730.0658_amd64.deb" size="5068934" buildtime="0" md5="74d1f316b9d06bb16c0c3db7fe3fd227" classes="aspect=panel" arch="amd64" />
+        <action sequence="prep" sequence-order="-2" stage="execute" exec-cmd="touch /var/lock/plesk-report-update.flag; :" />
+        <action sequence="prep" sequence-order="-1" stage="execute" exec-cmd="touch /tmp/pp-bootstrapper-mode.flag; touch /var/lock/parallels-panel-maintenance-mode.flag; rm -f /var/lock/parallels-panel-upgrade-failure.flag; :" />
+        <action sequence="prep" sequence-order="1" stage="rollback" exec-cmd="rm -f /tmp/pp-bootstrapper-mode.flag; rm -f /var/lock/parallels-panel-maintenance-mode.flag; rm -f /var/lock/parallels-panel-upgrade-failure.flag; :" />
+        <action sequence="pkgs" sequence-order="1" stage="rollback" exec-cmd="rm -f /tmp/pp-bootstrapper-mode.flag; rm -f /var/lock/parallels-panel-maintenance-mode.flag; touch /var/lock/parallels-panel-upgrade-failure.flag; :" />
+        <action sequence="post" sequence-order="1" stage="rollback" exec-cmd="rm -f /tmp/pp-bootstrapper-mode.flag; rm -f /var/lock/parallels-panel-maintenance-mode.flag; touch /var/lock/parallels-panel-upgrade-failure.flag; :" />
+        <action sequence="post" sequence-order="1" stage="commit" exec-cmd="rm -f /tmp/pp-bootstrapper-mode.flag; rm -f /var/lock/parallels-panel-maintenance-mode.flag; :" />
+        <action sequence="post" sequence-order="9990" exec-cmd="test ! -x /opt/psa/admin/sbin/packagemng || /opt/psa/admin/sbin/packagemng --set-dirty-flag" />
+        <action sequence="post" sequence-order="9991" exec-cmd="/opt/psa/bootstrapper/pp18.0.63-bootstrapper/bootstrapper.sh perform-deferred-actions" />
+        <action sequence="post" sequence-order="9998" exec-cmd="/opt/psa/admin/sbin/update_history" />
+    </bootstrapper>
+    <examine name="Enabled repositories check" scope="pre_install" script="examiners/repository_check.sh" options="install" />
+    <examine name="Enabled repositories check" scope="pre_upgrade" script="examiners/repository_check.sh" options="upgrade" />
+    <examine name="Enabled repositories check" scope="pre_update" script="examiners/repository_check.sh" options="update" />
+    <examine name="Check and fix broken timezone" scope="pre_upgrade" script="examiners/check_broken_timezone.sh" options="upgrade" />
+    <examine name="Check and fix broken timezone" scope="pre_update" script="examiners/check_broken_timezone.sh" options="update" />
+    <examine name="Available disk space check" scope="pre_install" script="examiners/disk_space_check.sh" options="install" />
+    <examine name="Available disk space check" scope="pre_upgrade" script="examiners/disk_space_check.sh" options="upgrade" />
+    <examine name="Available disk space check" scope="pre_update" script="examiners/disk_space_check.sh" options="update" />
+    <examine name="Installation is finished" scope="post_install" script="examiners/congratulations.sh" options="install" />
+    <examine name="Upgrade is finished" scope="post_upgrade" script="examiners/congratulations.sh" options="upgrade" />
+    <examine name="Prepare result notification" scope="pre_any" script="examiners/sh_cmd.sh" options="touch /var/lock/plesk-report-update.flag" always="true" />
+    <examine name="Installation result notification" scope="post_install" script="/report-update" launcher="examiners/py_launcher.sh" options="--op install --rc {RC} --start-flag /var/lock/plesk-report-update.flag --to=18.0.63.3" always="true" />
+    <examine name="Upgrade result notification" scope="post_upgrade" script="/report-update" launcher="examiners/py_launcher.sh" options="--op upgrade --rc {RC} --start-flag /var/lock/plesk-report-update.flag --to=18.0.63.3 --from={FROM_RELEASE_VERSION}" always="true" />
+    <examine name="Update result notification" scope="post_update" script="/report-update" launcher="examiners/py_launcher.sh" options="--op update  --rc {RC} --start-flag /var/lock/plesk-report-update.flag --to=18.0.63.3 --from={FROM_RELEASE_VERSION}" always="true" />
+    <examine name="Store installation info" scope="post_install" script="examiners/save-installation-info.php" launcher="examiners/php_launcher.sh" options="--save -mode {WORK_MODE} -preset {PRESET} -arguments {ARGUMENTS}" always="true" />
+    <gpg_public_key>-----BEGIN PGP PUBLIC KEY BLOCK-----&#x0A;&#x0A;mQGiBFXAUiARBAC9lDsyU9L2dZRyhOp27adDZ99+tfPq9L0aX1xmZvpF+rO6FEa1&#x0A;HCEi1blRq/icL784esCEuEe/k6eGeqKgOv6E05ZG9txvP/vhUofFJX6vAHsiScKN&#x0A;QXwZQQqM2Fz3oPqeN/7zOE/dfASrTC8fET7J7+d+KNOOnDSSxIG9XJbGTwCg0BCd&#x0A;2vNB4CduMm2oyTVNGcWXmCMEAIFJALIEEeNlevXvBxBPv86DB3eFdLUgYJNlwIfJ&#x0A;aDCFr9plRNb6O/MMGPFPsp113r4E+o1M8bW5RBfZgnxXH+6Xi3i/kMBh9GtovAv+&#x0A;qe4lMJQ+t7cFDedvsgsmigq7cl0cmSwe00zhYzT4t3lEg5F3l543Wwxk/kwQj2wp&#x0A;t5cCA/9rAUUCZ4ewdO74tiuF5nmTb+lHNvIq4EKXacgA5gsVVMTw/SH8G0m0z+YH&#x0A;3xJuVJaO18+6OrdCjGzmzJ78k8j6z1fuAZVWWaUK+XtjP6mn/ZsjwvrIGMxrbJ85&#x0A;B/v+j4W7MOjIHmD37PScSibK56ItlQHjd2y0S6jy+e4UFIOnA7QbUGxlc2sgVGVh&#x0A;bSA8aW5mb0BwbGVzay5jb20+iGAEExECACAFAlXAUiACGwMGCwkIBwMCBBUCCAME&#x0A;FgIDAQIeAQIXgAAKCRC9EaaqkUvfflh7AKCDstpjOFDR1FarF2BU/sA6+rFteQCg&#x0A;xHjO3vh+i2QiTnGlBhOUlCxuNFq5Ag0EVcBSJxAIAID5a6RrDkEIkaAc6u+BJJsp&#x0A;Rychg18z+IdHPUrBABEeT7vCmH5KISP1bdhur8vgeDdFanhLjTjC7mYJ5OJnb3ZM&#x0A;nl/L8B5uz/RQ8i7Sv/buwr69h/llVElkeOyx2SkkIdsHLPNXuxydZfADfz5B5Zjx&#x0A;R7IVepDxEeA755rCQd3alAwk6lA0Iy+LCdCaNIGpzzC6j7goLeGE1tAoG3J0Lvja&#x0A;xXGgTmqHHhImGjc875wngrDRo4yDu6Tfwi6b0RCfbkm6wgEWGvDwzSXz1+7iWRAC&#x0A;kyagGrZPOqKJiKBfj+hVMnflB3EFZd2j5hfWl35U4j18U6v6JkxKIn0DvD5+cz8A&#x0A;BAsH/RVWit+s/zXJbxd9U07EPbVS+ujZrhannBgV6xpMuGWDbl1QcMWXoQXU0zK4&#x0A;Gr44UmHbe3h1F38GeMzELjfMYi8XAMvOQkC5i8Clv9jHJwfHxt8wcA/tE4kPtRNx&#x0A;KhDhh3i2sZTg123h0EpEOlMvrVoboFyH8K7BN+KdEl3YtWgmbM9zhOO8R7LFGQ6m&#x0A;VxxL4BlX7QNZ9cpDQ5sNTiPu4pij++oFoSaquXZKGXOO3KvTBQHHceps+w1cpYXv&#x0A;EGzNjxvTvPmBYXZAVlu8dOInDMfl8wwctAmHXxPeh0kTGRlZT4QHJs1pJVgNuQbP&#x0A;pjqmxx1SGEnYmE/TNDP+J1F7GISISQQYEQIACQUCVcBSJwIbDAAKCRC9EaaqkUvf&#x0A;fmn2AJ9q31HpLe/9sHWQHAL/ul6qeSNIJwCeK2hBWeBcx0iC/ISo8T/EX8KTCcw=&#x0A;=NB3w&#x0A;-----END PGP PUBLIC KEY BLOCK-----</gpg_public_key>
+    <product id="plesk">
+        <keypackages>
+            <keypackage>psa</keypackage>
+        </keypackages>
+        <release id="PLESK_18_0_63" name="Plesk Obsidian 18.0.63" version="18.0.63" upgrade_allowed_from="17.0.17" />
+    </product>
+    <ext_catalog url="https://ext.plesk.com" />
+    <component name="panel" description="Plesk" classes="vendor=parallels,patched,aspect=panel" deny_implicit_removal="true">
+        <bootstrapper>
+            <package name="pp18.0.63-bootstrapper" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1332" file="bootstrapper/pp18.0.63-bootstrapper_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1332_amd64.deb" size="219116" buildtime="0" md5="588fcb78a994ca459c76686101b29568" classes="aspect=panel" arch="amd64" />
+            <package name="sw-engine-cli-6.63" version="6.63.0" release="ubuntu.22.04.240730.0658" file="bootstrapper/sw-engine-cli-6.63_6.63.0-ubuntu.22.04.240730.0658_amd64.deb" size="5068934" buildtime="0" md5="74d1f316b9d06bb16c0c3db7fe3fd227" classes="aspect=panel" arch="amd64" />
+            <action sequence="prep" exec-cmd="/opt/psa/bootstrapper/pp18.0.63-bootstrapper/bootstrapper.sh prep-install BASE" />
+            <action sequence="post" exec-cmd="touch /var/lock/plesk_deferred_awstats_configure" />
+            <action sequence="post" exec-cmd="/opt/psa/bootstrapper/pp18.0.63-bootstrapper/bootstrapper.sh post-install psa-vhost" />
+            <action sequence="post" exec-cmd="/opt/psa/bootstrapper/pp18.0.63-bootstrapper/bootstrapper.sh post-install BASE" sequence-order="100" />
+            <action sequence="prep" critical="false" sequence-order="9999" stage="rollback" exec-cmd="test ! -f /opt/psa/admin/plib/scripts/update-failure-notification.php || /opt/psa/admin/bin/php /opt/psa/admin/plib/scripts/update-failure-notification.php" />
+            <action sequence="pkgs" critical="false" sequence-order="9999" stage="rollback" exec-cmd="test ! -f /opt/psa/admin/plib/scripts/update-failure-notification.php || /opt/psa/admin/bin/php /opt/psa/admin/plib/scripts/update-failure-notification.php" />
+            <action sequence="post" critical="false" sequence-order="9999" stage="rollback" exec-cmd="test ! -f /opt/psa/admin/plib/scripts/update-failure-notification.php || /opt/psa/admin/bin/php /opt/psa/admin/plib/scripts/update-failure-notification.php" />
+            <action sequence="post" critical="false" sequence-order="9999" stage="commit" exec-cmd="test ! -f /opt/psa/admin/plib/scripts/update-success-notification.php || /opt/psa/admin/bin/php /opt/psa/admin/plib/scripts/update-success-notification.php" />
+        </bootstrapper>
+        <examine name="Plesk license key availability check" scope="pre_upgrade" script="examiners/license_key_check.php" launcher="examiners/php_launcher.sh" options="&apos;&apos;" />
+        <examine name="Plesk pre-upgrade check" scope="pre_upgrade" script="examiners/panel_preupgrade_checker.php" launcher="examiners/php_launcher.sh" options="&apos;&apos;" />
+        <keypackages>
+            <keypackage name="plesk-core" />
+            <keypackage name="psa" />
+            <keypackage name="plesk-web-hosting" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="plesk-core" />
+            <keypackage name="psa" />
+        </keypackages>
+        <requires>mysqlgroup</requires>
+        <requires>l10n</requires>
+        <requires>proftpd</requires>
+        <requires>webservers</requires>
+        <package name="libapache2-mod-aclr2-psa" version="14081815" release="v.ubuntu.22.04+p18.0.63.0+t240722.0520" file="opt/hosting/nginxSupport/libapache2-mod-aclr2-psa_14081815-v.ubuntu.22.04+p18.0.63.0+t240722.0520_amd64.deb" size="7540" buildtime="0" md5="a555d31958c8959d62d1bbc81b30f9b9" arch="amd64" />
+        <package name="libapache2-mod-sysenv-psa" version="0.2" release="v.ubuntu.22.04+p18.0.63.0+t240722.0520" file="opt/hosting/sysenv/libapache2-mod-sysenv-psa_0.2-v.ubuntu.22.04+p18.0.63.0+t240722.0520_amd64.deb" size="3804" buildtime="0" md5="236f93e45a5b422d5057dd111459e368" arch="amd64" />
+        <package name="libaps" version="1.0.14" release="ubuntu.22.04.240730.0658" file="engine/libaps_1.0.14-ubuntu.22.04.240730.0658_amd64.deb" size="1274324" buildtime="0" md5="1662c0a572868097555ea22e9b2012b6" classes="aspect=panel" arch="amd64" />
+        <package name="libpam-plesk" version="18.0" release="v.ubuntu.22.04+p18.0.63.0+t240724.1528" file="base/libpam-plesk_18.0-v.ubuntu.22.04+p18.0.63.0+t240724.1528_amd64.deb" size="407308" buildtime="0" md5="837c9e84d212b458fb1ac471c3e74870" classes="aspect=panel" arch="amd64" />
+        <package name="plesk-backup-utilities" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="base/plesk-backup-utilities_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="3620028" buildtime="0" md5="5c0ef60d79aeec8606c651693fb46262" classes="aspect=panel" arch="amd64" />
+        <package name="plesk-completion" version="18.0" release="v.ubuntu.22.04+p18.0.63.0+t240710.1010" file="base/plesk-completion_18.0-v.ubuntu.22.04+p18.0.63.0+t240710.1010_amd64.deb" size="1956284" buildtime="0" md5="34766aa0a3e022b3e6c0bf34a9a2dd77" classes="aspect=panel" arch="amd64" />
+        <package name="plesk-control-panel" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="base/plesk-control-panel_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1037_all.deb" size="7964072" buildtime="0" md5="c181cb3afcf5968958996816ba889f04" classes="aspect=panel" arch="all" />
+        <package name="plesk-core" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1332" file="base/plesk-core_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1332_amd64.deb" size="31252776" buildtime="0" md5="b087539addaf4375df933296dfc1cee7" classes="aspect=panel" arch="amd64" />
+        <package name="plesk-core-utilities" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="base/plesk-core-utilities_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="1148044" buildtime="0" md5="097394fa63305645415f2a864cd28a13" classes="aspect=panel" arch="amd64" />
+        <package name="plesk-engine" version="18.0" release="v.ubuntu.22.04+p18.0.63.0+t240711.2328" file="engine/plesk-engine_18.0-v.ubuntu.22.04+p18.0.63.0+t240711.2328_all.deb" size="1152" buildtime="0" md5="548f4a56f86f66d055694254574bb89d" classes="aspect=panel" arch="all" />
+        <package name="plesk-libmaodbc" version="3.1.20" release="v.ubuntu.22.04+p18.0.63.0+t240725.0655" file="base/plesk-libmaodbc_3.1.20-v.ubuntu.22.04+p18.0.63.0+t240725.0655_amd64.deb" size="103424" buildtime="0" md5="19f9acc1d75ef632b5cd094c9f101dad" classes="aspect=panel" arch="amd64" />
+        <package name="plesk-libmariadbclient-3.3" version="3.3.10" release="v.ubuntu.22.04+p18.0.63.0+t240725.0655" file="base/plesk-libmariadbclient-3.3_3.3.10-v.ubuntu.22.04+p18.0.63.0+t240725.0655_amd64.deb" size="123664" buildtime="0" md5="7157b0b4489c13ced8af1cfc1ce16dd4" classes="aspect=panel" arch="amd64" />
+        <package name="plesk-librdbmspp" version="2.0.5" release="ubuntu.22.04.240730.0658" file="engine/plesk-librdbmspp_2.0.5-ubuntu.22.04.240730.0658_amd64.deb" size="198942" buildtime="0" md5="38376d9e61e2f8c2eff2c890411b2785" classes="aspect=panel" arch="amd64" />
+        <package name="plesk-lmlib" version="0.2.6" release="ubuntu.22.04.240730.0658" file="engine/plesk-lmlib_0.2.6-ubuntu.22.04.240730.0658_amd64.deb" size="484550" buildtime="0" md5="1715b106c03ac0533c4d85c0b1d47216" classes="aspect=panel" arch="amd64" />
+        <package name="plesk-phpenv" version="0.9.0" release="v.ubuntu.22.04+p18.0.61.0+t240426.1307" file="opt/hosting/phpenv/plesk-phpenv_0.9.0-v.ubuntu.22.04+p18.0.61.0+t240426.1307_all.deb" size="16648" buildtime="0" md5="80875d6c845d59dd737b4e847cd86a96" arch="all" />
+        <package name="plesk-platform-runtime" version="1.0.5" release="ubuntu.22.04.240730.0658" file="engine/plesk-platform-runtime_1.0.5-ubuntu.22.04.240730.0658_amd64.deb" size="20216" buildtime="0" md5="15aaab383085b296a7fc48d7ed4cf88d" classes="aspect=panel" arch="amd64" />
+        <package name="plesk-release" version="18.0.63.3" release="v.ubuntu.22.04+p18.0.63.3+t240825.0943" file="base/plesk-release_18.0.63.3-v.ubuntu.22.04+p18.0.63.3+t240825.0943_amd64.deb" size="1460" buildtime="0" md5="0582f0ccb04c8e26fc94fdfa7d6f64bf" classes="aspect=panel" arch="amd64" />
+        <package name="plesk-repair-kit" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="opt/repairkit/plesk-repair-kit_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="4382864" buildtime="0" md5="0466a8df67be283dd5dc866a2c917243" classes="aspect=panel" arch="amd64" />
+        <package name="plesk-rrd" version="1.8.0" release="v.ubuntu.22.04+p18.0.62.0+t240510.2135" file="base/plesk-rrd_1.8.0-v.ubuntu.22.04+p18.0.62.0+t240510.2135_amd64.deb" size="607140" buildtime="0" md5="1b49def3d9a2c2d6bd9892be58bc5dd6" classes="aspect=panel" arch="amd64" />
+        <package name="plesk-service-node-utilities" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240825.0943" file="base/plesk-service-node-utilities_18.0-v.ubuntu.22.04+p18.0.63.3+t240825.0943_amd64.deb" size="3276528" buildtime="0" md5="e3d3f03f085429dd921c8500dbfc0005" classes="aspect=panel" arch="amd64" />
+        <package name="plesk-task-manager" version="18.0" release="v.ubuntu.22.04+p18.0.63.0+t240725.0655" file="base/plesk-task-manager_18.0-v.ubuntu.22.04+p18.0.63.0+t240725.0655_amd64.deb" size="4156168" buildtime="0" md5="a38582967cdf1b9328cd61ccf4c79775" classes="aspect=panel" arch="amd64" />
+        <package name="plesk-ui-library" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="base/plesk-ui-library_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1037_all.deb" size="2480768" buildtime="0" md5="ace7231c2fd7b76e23278ed3469d15e8" classes="aspect=panel" arch="all" />
+        <package name="plesk-web-hosting" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="opt/hosting/whc/plesk-web-hosting_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="77388" buildtime="0" md5="bebacca0f3cfb217d3b23ac648b69265" classes="aspect=panel" arch="amd64" />
+        <package name="plesk-web-socket" version="18.0" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="base/plesk-web-socket_18.0-v.ubuntu.22.04+p18.0.63.0+t240715.1009_amd64.deb" size="19944" buildtime="0" md5="ff8d2f3878fc7dadebbdd780f0a6dc5a" classes="aspect=panel" arch="amd64" />
+        <package name="psa" version="18.0.63" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="base/psa_18.0.63-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="33504" buildtime="0" md5="d292efb8f21ce010833cf635ed049a15" classes="aspect=panel" arch="amd64" />
+        <package name="psa-autoinstaller" version="3.63.0" release="ubuntu.22.04.240730.0746" file="opt/updater/psa-autoinstaller_3.63.0-ubuntu.22.04.240730.0746_amd64.deb" size="4428546" buildtime="0" md5="8a508c55ac80b1eb83d80b4da9f03fd6" classes="aspect=panel" arch="amd64" />
+        <package name="psa-libxml-proxy" version="2.9.12" release="v.ubuntu.22.04+p18.0.61.0+t240426.1307" file="base/psa-libxml-proxy_2.9.12-v.ubuntu.22.04+p18.0.61.0+t240426.1307_amd64.deb" size="656456" buildtime="0" md5="64889b444b11b3453a651467293947e6" classes="aspect=panel" arch="amd64" />
+        <package name="psa-locale-base-en-us" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="base/psa-locale-base-en-us_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1037_all.deb" size="338712" buildtime="0" md5="077e4ecf790934d66b23f450d735fe0f" classes="aspect=panel" arch="all" />
+        <package name="psa-logrotate" version="3.22.0" release="v.ubuntu.22.04+p18.0.63.0+t240725.0655" file="base/psa-logrotate_3.22.0-v.ubuntu.22.04+p18.0.63.0+t240725.0655_amd64.deb" size="62484" buildtime="0" md5="e0bb2968d1d7572cfd49fbd4fc79e000" classes="aspect=panel" arch="amd64" />
+        <package name="psa-phpmyadmin" version="5.2.1" release="v.ubuntu.22.04+p18.0.63.0+t240716.1520" file="base/psa-phpmyadmin_5.2.1-v.ubuntu.22.04+p18.0.63.0+t240716.1520_all.deb" size="7652404" buildtime="0" md5="a39dfe4ecfe33e5f4c5ec9bff9381971" classes="aspect=panel" arch="all" />
+        <package name="psa-updates" version="18.0" release="v.ubuntu.22.04+p18.0.61.0+t240426.1307" file="base/psa-updates_18.0-v.ubuntu.22.04+p18.0.61.0+t240426.1307_all.deb" size="1300" buildtime="0" md5="060879540def09487b9fa3d00a8ebed4" classes="aspect=panel" arch="all" />
+        <package name="psa-vhost" version="18.0" release="v.ubuntu.22.04+p18.0.63.0+t240725.0655" file="opt/vhost/psa-vhost_18.0-v.ubuntu.22.04+p18.0.63.0+t240725.0655_all.deb" size="33524" buildtime="0" md5="0b6fd81b50ef354fef0e3c64d597fb8a" classes="aspect=panel" arch="all" />
+        <package name="sw-collectd" version="5.12.0" release="v.ubuntu.22.04+p18.0.63.0+t240725.0655" file="base/sw-collectd_5.12.0-v.ubuntu.22.04+p18.0.63.0+t240725.0655_amd64.deb" size="521628" buildtime="0" md5="ed3f9b3af9c370cd135e717bf179f3cf" classes="aspect=panel" arch="amd64" />
+        <package name="sw-cp-server" version="2.13.4" release="v.ubuntu.22.04+p18.0.63.0+t240725.0655" file="engine/sw-cp-server_2.13.4-v.ubuntu.22.04+p18.0.63.0+t240725.0655_amd64.deb" size="894720" buildtime="0" md5="9657036a0e8e2dc93a78804ba7a69e83" classes="aspect=panel" arch="amd64" />
+        <package name="sw-engine" version="6.63.0" release="ubuntu.22.04.240730.0658" file="engine/sw-engine_6.63.0-ubuntu.22.04.240730.0658_amd64.deb" size="11414538" buildtime="0" md5="47a023f191389831c1a150c986071243" classes="aspect=panel" arch="amd64" />
+    </component>
+    <component name="bind" description="BIND DNS server" classes="vendor=mixed">
+        <keypackages>
+            <keypackage name="plesk-dns-bind-driver" />
+        </keypackages>
+        <package name="plesk-dns-bind-driver" version="18.0" release="v.ubuntu.22.04+p18.0.63.0+t240724.1528" file="opt/dns/plesk-dns-bind-driver_18.0-v.ubuntu.22.04+p18.0.63.0+t240724.1528_amd64.deb" size="513448" buildtime="0" md5="bcdf557c8db6dee8201a0497cf950e38" classes="aspect=panel" arch="amd64" />
+    </component>
+    <component name="qmail" description="Qmail" classes="vendor=parallels">
+        <bootstrapper>
+            <package name="pp18.0.63-bootstrapper" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1332" file="bootstrapper/pp18.0.63-bootstrapper_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1332_amd64.deb" size="219116" buildtime="0" md5="588fcb78a994ca459c76686101b29568" classes="aspect=panel" arch="amd64" />
+            <package name="sw-engine-cli-6.63" version="6.63.0" release="ubuntu.22.04.240730.0658" file="bootstrapper/sw-engine-cli-6.63_6.63.0-ubuntu.22.04.240730.0658_amd64.deb" size="5068934" buildtime="0" md5="74d1f316b9d06bb16c0c3db7fe3fd227" classes="aspect=panel" arch="amd64" />
+            <action sequence="prep" exec-cmd="/opt/psa/bootstrapper/pp18.0.63-bootstrapper/bootstrapper.sh prep-install mail-qc-driver" />
+            <action sequence="post" exec-cmd="/opt/psa/bootstrapper/pp18.0.63-bootstrapper/bootstrapper.sh post-install mail-qc-driver" />
+        </bootstrapper>
+        <keypackages>
+            <keypackage name="plesk-mail-qc-driver" />
+            <keypackage name="psa-qmail" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="psa-mail-qc-driver" />
+            <keypackage name="psa-qmail" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="psa-qmail" />
+            <nokeypackage name="psa-mail-pc-driver" />
+            <nokeypackage name="plesk-mail-pc-driver" />
+        </keypackages>
+        <requires>imapservers</requires>
+        <package name="plesk-mail-qc-driver" version="18.0" release="v.ubuntu.22.04+p18.0.63.0+t240731.1050" file="opt/maildrivers/plesk-mail-qc-driver_18.0-v.ubuntu.22.04+p18.0.63.0+t240731.1050_amd64.deb" size="653672" buildtime="0" md5="357b205fe8d0e0529fc5a1ca77adbdc1" classes="aspect=panel" arch="amd64" />
+        <package name="psa-mail-driver-common" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="opt/maildrivers/psa-mail-driver-common_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="2006276" buildtime="0" md5="211d3bf1f3d70afd4b57f0ae88289df0" classes="aspect=panel" arch="amd64" />
+        <package name="psa-qmail" version="3:1.03" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="opt/maildrivers/psa-qmail_1.03-v.ubuntu.22.04+p18.0.63.0+t240715.1009_amd64.deb" size="275720" buildtime="0" md5="de4bfd3c81a53c059586f89d0190fd70" arch="amd64" />
+        <package name="psa-qmail" version="3:1.03" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="unknown_dir/psa-qmail_1.03-v.ubuntu.22.04+p18.0.63.0+t240715.1009_amd64.deb" size="275720" buildtime="0" md5="de4bfd3c81a53c059586f89d0190fd70" arch="amd64" />
+        <package name="psa-qmail-rblsmtpd" version="0.88" release="v.ubuntu.22.04+p18.0.61.0+t240426.1307" file="opt/mail/psa-qmail-rblsmtpd_0.88-v.ubuntu.22.04+p18.0.61.0+t240426.1307_amd64.deb" size="19600" buildtime="0" md5="4888533e7f516b061d267678c4e5b17c" arch="amd64" />
+        <package name="psa-qmail-rblsmtpd" version="0.88" release="v.ubuntu.22.04+p18.0.61.0+t240426.1307" file="unknown_dir/psa-qmail-rblsmtpd_0.88-v.ubuntu.22.04+p18.0.61.0+t240426.1307_amd64.deb" size="19600" buildtime="0" md5="4888533e7f516b061d267678c4e5b17c" arch="amd64" />
+    </component>
+    <component name="postfix" description="Postfix" classes="vendor=mixed">
+        <bootstrapper>
+            <package name="pp18.0.63-bootstrapper" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1332" file="bootstrapper/pp18.0.63-bootstrapper_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1332_amd64.deb" size="219116" buildtime="0" md5="588fcb78a994ca459c76686101b29568" classes="aspect=panel" arch="amd64" />
+            <package name="sw-engine-cli-6.63" version="6.63.0" release="ubuntu.22.04.240730.0658" file="bootstrapper/sw-engine-cli-6.63_6.63.0-ubuntu.22.04.240730.0658_amd64.deb" size="5068934" buildtime="0" md5="74d1f316b9d06bb16c0c3db7fe3fd227" classes="aspect=panel" arch="amd64" />
+            <action sequence="prep" exec-cmd="/opt/psa/bootstrapper/pp18.0.63-bootstrapper/bootstrapper.sh prep-install mail-pc-driver" />
+            <action sequence="post" exec-cmd="/opt/psa/bootstrapper/pp18.0.63-bootstrapper/bootstrapper.sh post-install mail-pc-driver" />
+        </bootstrapper>
+        <keypackages>
+            <keypackage name="plesk-mail-pc-driver" />
+            <keypackage name="postfix" />
+        </keypackages>
+        <requires>imapservers</requires>
+        <package name="plesk-mail-pc-driver" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="opt/maildrivers/plesk-mail-pc-driver_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="1537060" buildtime="0" md5="701f4015d7f46e86c58e245abb380159" classes="aspect=panel" arch="amd64" />
+        <package name="psa-mail-driver-common" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="opt/maildrivers/psa-mail-driver-common_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="2006276" buildtime="0" md5="211d3bf1f3d70afd4b57f0ae88289df0" classes="aspect=panel" arch="amd64" />
+    </component>
+    <component name="msmtp" description="MSMTP (relay only)" classes="vendor=parallels">
+        <bootstrapper>
+            <package name="pp18.0.63-bootstrapper" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1332" file="bootstrapper/pp18.0.63-bootstrapper_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1332_amd64.deb" size="219116" buildtime="0" md5="588fcb78a994ca459c76686101b29568" classes="aspect=panel" arch="amd64" />
+            <package name="sw-engine-cli-6.63" version="6.63.0" release="ubuntu.22.04.240730.0658" file="bootstrapper/sw-engine-cli-6.63_6.63.0-ubuntu.22.04.240730.0658_amd64.deb" size="5068934" buildtime="0" md5="74d1f316b9d06bb16c0c3db7fe3fd227" classes="aspect=panel" arch="amd64" />
+            <action sequence="post" exec-cmd="/opt/psa/bootstrapper/pp18.0.63-bootstrapper/bootstrapper.sh post-install mail-mc-driver" />
+        </bootstrapper>
+        <keypackages>
+            <keypackage name="plesk-mail-mc-driver" />
+            <keypackage name="sw-msmtp" />
+        </keypackages>
+        <conflicts>mailman</conflicts>
+        <conflicts>spamassassin</conflicts>
+        <conflicts>drweb</conflicts>
+        <conflicts>sophos</conflicts>
+        <conflicts>courier</conflicts>
+        <conflicts>dovecot</conflicts>
+        <package name="plesk-mail-mc-driver" version="18.0" release="v.ubuntu.22.04+p18.0.63.0+t240724.1528" file="opt/maildrivers/plesk-mail-mc-driver_18.0-v.ubuntu.22.04+p18.0.63.0+t240724.1528_amd64.deb" size="49968" buildtime="0" md5="8ecec1262aa27503dea23dc5c74f6743" classes="aspect=panel" arch="amd64" />
+        <package name="sw-msmtp" version="1.8.26" release="v.ubuntu.22.04+p18.0.63.0+t240802.0732" file="opt/maildrivers/sw-msmtp_1.8.26-v.ubuntu.22.04+p18.0.63.0+t240802.0732_amd64.deb" size="148532" buildtime="0" md5="5e9dff5fa66a507000fb654ffd6a6a02" arch="amd64" />
+        <package name="sw-msmtp" version="1.8.26" release="v.ubuntu.22.04+p18.0.63.0+t240802.0732" file="unknown_dir/sw-msmtp_1.8.26-v.ubuntu.22.04+p18.0.63.0+t240802.0732_amd64.deb" size="148532" buildtime="0" md5="5e9dff5fa66a507000fb654ffd6a6a02" arch="amd64" />
+    </component>
+    <component name="courier" description="Courier" classes="vendor=parallels">
+        <bootstrapper>
+            <package name="pp18.0.63-bootstrapper" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1332" file="bootstrapper/pp18.0.63-bootstrapper_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1332_amd64.deb" size="219116" buildtime="0" md5="588fcb78a994ca459c76686101b29568" classes="aspect=panel" arch="amd64" />
+            <package name="sw-engine-cli-6.63" version="6.63.0" release="ubuntu.22.04.240730.0658" file="bootstrapper/sw-engine-cli-6.63_6.63.0-ubuntu.22.04.240730.0658_amd64.deb" size="5068934" buildtime="0" md5="74d1f316b9d06bb16c0c3db7fe3fd227" classes="aspect=panel" arch="amd64" />
+            <action sequence="post" exec-cmd="/opt/psa/bootstrapper/pp18.0.63-bootstrapper/bootstrapper.sh post-install courier-imap" />
+        </bootstrapper>
+        <keypackages>
+            <keypackage name="plesk-courier-imap-driver" />
+            <keypackage name="psa-courier-imap" />
+            <keypackage name="psa-courier-authlib" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="psa-courier-imap" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="courier-imap" />
+        </keypackages>
+        <requires>mailservers</requires>
+        <package name="plesk-courier-imap-driver" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="opt/mail/plesk-courier-imap-driver_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="168852" buildtime="0" md5="89c0faed64fc09528fc3c1fc59e2ab54" classes="aspect=panel" arch="amd64" />
+        <package name="psa-courier-authlib" version="0.72.1" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="opt/mail/psa-courier-authlib_0.72.1-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="134880" buildtime="0" md5="84bcdccb9021240ce0d2d91bf5da2292" arch="amd64" />
+        <package name="psa-courier-authlib" version="0.72.1" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="unknown_dir/psa-courier-authlib_0.72.1-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="134880" buildtime="0" md5="84bcdccb9021240ce0d2d91bf5da2292" arch="amd64" />
+        <package name="psa-courier-imap" version="5.2.7" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="opt/mail/psa-courier-imap_5.2.7-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="433484" buildtime="0" md5="a49914ca4571e93be58d8ee907af7b28" arch="amd64" />
+        <package name="psa-courier-imap" version="5.2.7" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="unknown_dir/psa-courier-imap_5.2.7-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="433484" buildtime="0" md5="a49914ca4571e93be58d8ee907af7b28" arch="amd64" />
+        <package name="psa-courier-unicode" version="2.3.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="opt/mail/psa-courier-unicode_2.3.0-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="119080" buildtime="0" md5="ea69ea63c3332ae737445d75177e867e" arch="amd64" />
+        <package name="psa-courier-unicode" version="2.3.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="unknown_dir/psa-courier-unicode_2.3.0-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="119080" buildtime="0" md5="ea69ea63c3332ae737445d75177e867e" arch="amd64" />
+    </component>
+    <component name="dovecot" description="Dovecot" classes="vendor=parallels">
+        <bootstrapper>
+            <package name="pp18.0.63-bootstrapper" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1332" file="bootstrapper/pp18.0.63-bootstrapper_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1332_amd64.deb" size="219116" buildtime="0" md5="588fcb78a994ca459c76686101b29568" classes="aspect=panel" arch="amd64" />
+            <package name="sw-engine-cli-6.63" version="6.63.0" release="ubuntu.22.04.240730.0658" file="bootstrapper/sw-engine-cli-6.63_6.63.0-ubuntu.22.04.240730.0658_amd64.deb" size="5068934" buildtime="0" md5="74d1f316b9d06bb16c0c3db7fe3fd227" classes="aspect=panel" arch="amd64" />
+            <action sequence="post" exec-cmd="/opt/psa/bootstrapper/pp18.0.63-bootstrapper/bootstrapper.sh post-install dovecot" />
+        </bootstrapper>
+        <keypackages>
+            <keypackage name="plesk-dovecot-imap-driver" />
+            <keypackage name="plesk-dovecot" />
+            <keypackage name="plesk-dovecot-pigeonhole" />
+        </keypackages>
+        <requires>mailservers</requires>
+        <package name="plesk-dovecot" version="2.3.21" release="v.ubuntu.22.04+p18.0.63.0+t240802.0732" file="opt/mail/plesk-dovecot_2.3.21-v.ubuntu.22.04+p18.0.63.0+t240802.0732_amd64.deb" size="1513844" buildtime="0" md5="364360e1544e24003ac1aacd0555fda7" arch="amd64" />
+        <package name="plesk-dovecot" version="2.3.21" release="v.ubuntu.22.04+p18.0.63.0+t240802.0732" file="unknown_dir/plesk-dovecot_2.3.21-v.ubuntu.22.04+p18.0.63.0+t240802.0732_amd64.deb" size="1513844" buildtime="0" md5="364360e1544e24003ac1aacd0555fda7" arch="amd64" />
+        <package name="plesk-dovecot-core" version="2.3.21" release="v.ubuntu.22.04+p18.0.63.0+t240802.0732" file="opt/mail/plesk-dovecot-core_2.3.21-v.ubuntu.22.04+p18.0.63.0+t240802.0732_amd64.deb" size="3101664" buildtime="0" md5="30e7acc32274f9d969a625b39736fb56" arch="amd64" />
+        <package name="plesk-dovecot-core" version="2.3.21" release="v.ubuntu.22.04+p18.0.63.0+t240802.0732" file="unknown_dir/plesk-dovecot-core_2.3.21-v.ubuntu.22.04+p18.0.63.0+t240802.0732_amd64.deb" size="3101664" buildtime="0" md5="30e7acc32274f9d969a625b39736fb56" arch="amd64" />
+        <package name="plesk-dovecot-imap-driver" version="18.0" release="v.ubuntu.22.04+p18.0.63.0+t240802.0732" file="opt/mail/plesk-dovecot-imap-driver_18.0-v.ubuntu.22.04+p18.0.63.0+t240802.0732_amd64.deb" size="263184" buildtime="0" md5="9e34c07498980743a90c1a9189f7e333" arch="amd64" />
+        <package name="plesk-dovecot-pigeonhole" version="0.5.21" release="v.ubuntu.22.04+p18.0.63.0+t240802.0732" file="opt/mail/plesk-dovecot-pigeonhole_0.5.21-v.ubuntu.22.04+p18.0.63.0+t240802.0732_amd64.deb" size="681096" buildtime="0" md5="1f515cb56512548839b1161df157db01" arch="amd64" />
+        <package name="plesk-dovecot-pigeonhole" version="0.5.21" release="v.ubuntu.22.04+p18.0.63.0+t240802.0732" file="unknown_dir/plesk-dovecot-pigeonhole_0.5.21-v.ubuntu.22.04+p18.0.63.0+t240802.0732_amd64.deb" size="681096" buildtime="0" md5="1f515cb56512548839b1161df157db01" arch="amd64" />
+    </component>
+    <component name="php5" description="PHP from OS vendor" classes="vendor=mixed">
+        <keypackages>
+            <keypackage name="psa-php-configurator" />
+            <keypackage name="php-fpm" />
+            <keypackage name="php-common" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="psa-php-configurator" />
+        </keypackages>
+        <requires>panel</requires>
+        <package name="psa-php-configurator" version="1.8.0" release="v.ubuntu.22.04+p18.0.63.0+t240725.0655" file="opt/php/psa-php-configurator_1.8.0-v.ubuntu.22.04+p18.0.63.0+t240725.0655_amd64.deb" size="30588" buildtime="0" md5="eb45fdea6d540415e65a378f0298b0f1" classes="aspect=panel" arch="amd64" />
+    </component>
+    <component name="postgresql" description="PostgreSQL server" classes="vendor=os">
+        <keypackages>
+            <keypackage name="postgresql-14" />
+            <keypackage name="postgresql" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-13" />
+            <keypackage name="postgresql" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-12" />
+            <keypackage name="postgresql" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-11" />
+            <keypackage name="postgresql" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-10" />
+            <keypackage name="postgresql" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-9.6" />
+            <keypackage name="postgresql" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-9.5" />
+            <keypackage name="postgresql" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-9.4" />
+            <keypackage name="postgresql" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-9.3" />
+            <keypackage name="postgresql" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-9.2" />
+            <keypackage name="postgresql" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-9.1" />
+            <keypackage name="postgresql" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-9.0" />
+            <keypackage name="postgresql" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-8.4" />
+            <keypackage name="postgresql" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-8.3" />
+            <keypackage name="postgresql" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-8.2" />
+            <keypackage name="postgresql" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-14" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-13" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-12" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-11" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-10" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-9.6" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-9.5" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-9.4" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-9.3" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-9.2" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-9.1" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-9.0" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-8.4" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-8.3" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql-8.2" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="postgresql" />
+        </keypackages>
+    </component>
+    <component name="mysql-sys" description="MySQL server" classes="vendor=os">
+        <keypackages>
+            <keypackage name="mariadb-server" />
+        </keypackages>
+        <keypackages>
+            <keyprovide name="mysql-server" />
+        </keypackages>
+        <keypackages>
+            <keyprovide name="virtual-mysql-server" />
+        </keypackages>
+    </component>
+    <component name="apache" description="Apache" classes="vendor=os">
+        <keypackages>
+            <keypackage name="apache2" />
+            <keypackage name="apache2-mpm-prefork" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="apache2" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="apache2-mpm-itk" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="apache2-mpm-prefork" />
+        </keypackages>
+    </component>
+    <component name="spamassassin" description="SpamAssassin" classes="vendor=mixed,aspect=panel">
+        <bootstrapper>
+            <package name="pp18.0.63-bootstrapper" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1332" file="bootstrapper/pp18.0.63-bootstrapper_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1332_amd64.deb" size="219116" buildtime="0" md5="588fcb78a994ca459c76686101b29568" classes="aspect=panel" arch="amd64" />
+            <package name="sw-engine-cli-6.63" version="6.63.0" release="ubuntu.22.04.240730.0658" file="bootstrapper/sw-engine-cli-6.63_6.63.0-ubuntu.22.04.240730.0658_amd64.deb" size="5068934" buildtime="0" md5="74d1f316b9d06bb16c0c3db7fe3fd227" classes="aspect=panel" arch="amd64" />
+            <action sequence="post" exec-cmd="/opt/psa/bootstrapper/pp18.0.63-bootstrapper/bootstrapper.sh post-install spammng" />
+        </bootstrapper>
+        <keypackages>
+            <keypackage name="psa-spamassassin" />
+        </keypackages>
+        <package name="psa-spamassassin" version="18.0" release="v.ubuntu.22.04+p18.0.63.0+t240724.1528" file="opt/mail/psa-spamassassin_18.0-v.ubuntu.22.04+p18.0.63.0+t240724.1528_amd64.deb" size="69548" buildtime="0" md5="1ccfe28b0614cef130d56f19f85962f8" arch="amd64" />
+    </component>
+    <component name="mod_python" description="mod_python" hidden="true" classes="vendor=os" show_installed_hidden="true">
+        <keypackages>
+            <keypackage name="libapache2-mod-python" />
+        </keypackages>
+        <requires>webservers</requires>
+    </component>
+    <component name="drweb" description="Plesk Premium Antivirus" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-premium-av" />
+        </keypackages>
+        <requires>panel</requires>
+    </component>
+    <component name="psa-firewall" description="Plesk Firewall" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-firewall" />
+        </keypackages>
+        <requires>panel</requires>
+    </component>
+    <component name="config-troubleshooter" description="Plesk Web Server Configuration Troubleshooter" classes="vendor=parallels,aspect=panel">
+        <bootstrapper>
+            <package name="pp18.0.63-bootstrapper" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1332" file="bootstrapper/pp18.0.63-bootstrapper_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1332_amd64.deb" size="219116" buildtime="0" md5="588fcb78a994ca459c76686101b29568" classes="aspect=panel" arch="amd64" />
+            <package name="sw-engine-cli-6.63" version="6.63.0" release="ubuntu.22.04.240730.0658" file="bootstrapper/sw-engine-cli-6.63_6.63.0-ubuntu.22.04.240730.0658_amd64.deb" size="5068934" buildtime="0" md5="74d1f316b9d06bb16c0c3db7fe3fd227" classes="aspect=panel" arch="amd64" />
+            <action sequence="post" exec-cmd="/opt/psa/bootstrapper/pp18.0.63-bootstrapper/bootstrapper.sh post-install config-troubleshooter" />
+        </bootstrapper>
+        <keypackages>
+            <keypackage name="plesk-config-troubleshooter" />
+        </keypackages>
+        <requires>panel</requires>
+        <package name="plesk-config-troubleshooter" version="18.0" release="v.ubuntu.22.04+p18.0.63.0+t240725.0655" file="opt/modules/configTroubleshooter/plesk-config-troubleshooter_18.0-v.ubuntu.22.04+p18.0.63.0+t240725.0655_all.deb" size="1089656" buildtime="0" md5="6193f325a398a98ce81fd8af7c495637" arch="all" />
+    </component>
+    <component name="horde" description="Horde" classes="vendor=parallels">
+        <bootstrapper>
+            <package name="pp18.0.63-bootstrapper" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1332" file="bootstrapper/pp18.0.63-bootstrapper_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1332_amd64.deb" size="219116" buildtime="0" md5="588fcb78a994ca459c76686101b29568" classes="aspect=panel" arch="amd64" />
+            <package name="sw-engine-cli-6.63" version="6.63.0" release="ubuntu.22.04.240730.0658" file="bootstrapper/sw-engine-cli-6.63_6.63.0-ubuntu.22.04.240730.0658_amd64.deb" size="5068934" buildtime="0" md5="74d1f316b9d06bb16c0c3db7fe3fd227" classes="aspect=panel" arch="amd64" />
+            <action sequence="prep" exec-cmd="/opt/psa/bootstrapper/pp18.0.63-bootstrapper/bootstrapper.sh prep-install horde" />
+            <action sequence="post" exec-cmd="/opt/psa/bootstrapper/pp18.0.63-bootstrapper/bootstrapper.sh post-install horde" />
+        </bootstrapper>
+        <keypackages>
+            <keypackage name="psa-horde" />
+            <keypackage name="psa-turba" />
+            <keypackage name="psa-imp" />
+            <keypackage name="psa-ingo" />
+            <keypackage name="psa-mnemo" />
+            <keypackage name="psa-kronolith" />
+            <keypackage name="psa-passwd" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="psa-horde" />
+        </keypackages>
+        <requires>php7.4</requires>
+        <package name="psa-horde" version="5.2.23" release="v.ubuntu.22.04+p18.0.63.0+t240725.0655" file="opt/horde/psa-horde_5.2.23-v.ubuntu.22.04+p18.0.63.0+t240725.0655_all.deb" size="12097828" buildtime="0" md5="5464a107c563570ba558ac57f3bfa5e8" arch="all" />
+        <package name="psa-horde" version="5.2.23" release="v.ubuntu.22.04+p18.0.63.0+t240725.0655" file="unknown_dir/psa-horde_5.2.23-v.ubuntu.22.04+p18.0.63.0+t240725.0655_all.deb" size="12097828" buildtime="0" md5="5464a107c563570ba558ac57f3bfa5e8" arch="all" />
+        <package name="psa-imp" version="6.2.27" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="opt/horde/psa-imp_6.2.27-v.ubuntu.22.04+p18.0.63.0+t240715.1009_all.deb" size="2450012" buildtime="0" md5="2288ab8d0bb4fa25c5248002977f2f55" arch="all" />
+        <package name="psa-imp" version="6.2.27" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="unknown_dir/psa-imp_6.2.27-v.ubuntu.22.04+p18.0.63.0+t240715.1009_all.deb" size="2450012" buildtime="0" md5="2288ab8d0bb4fa25c5248002977f2f55" arch="all" />
+        <package name="psa-ingo" version="3.2.16" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="opt/horde/psa-ingo_3.2.16-v.ubuntu.22.04+p18.0.63.0+t240715.1009_all.deb" size="790540" buildtime="0" md5="5cbc9ffaf91e9205c04bb15c7d5cb60f" arch="all" />
+        <package name="psa-ingo" version="3.2.16" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="unknown_dir/psa-ingo_3.2.16-v.ubuntu.22.04+p18.0.63.0+t240715.1009_all.deb" size="790540" buildtime="0" md5="5cbc9ffaf91e9205c04bb15c7d5cb60f" arch="all" />
+        <package name="psa-kronolith" version="4.2.29" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="opt/horde/psa-kronolith_4.2.29-v.ubuntu.22.04+p18.0.63.0+t240715.1009_all.deb" size="1327384" buildtime="0" md5="53b753eef6f503e052b9edb4ee72678b" arch="all" />
+        <package name="psa-kronolith" version="4.2.29" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="unknown_dir/psa-kronolith_4.2.29-v.ubuntu.22.04+p18.0.63.0+t240715.1009_all.deb" size="1327384" buildtime="0" md5="53b753eef6f503e052b9edb4ee72678b" arch="all" />
+        <package name="psa-mnemo" version="4.2.14" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="opt/horde/psa-mnemo_4.2.14-v.ubuntu.22.04+p18.0.63.0+t240715.1009_all.deb" size="627608" buildtime="0" md5="cf9ded6c1ddf40a56aa0c5c2c12ca6d0" arch="all" />
+        <package name="psa-mnemo" version="4.2.14" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="unknown_dir/psa-mnemo_4.2.14-v.ubuntu.22.04+p18.0.63.0+t240715.1009_all.deb" size="627608" buildtime="0" md5="cf9ded6c1ddf40a56aa0c5c2c12ca6d0" arch="all" />
+        <package name="psa-passwd" version="5.0.7" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="opt/horde/psa-passwd_5.0.7-v.ubuntu.22.04+p18.0.63.0+t240715.1009_all.deb" size="589132" buildtime="0" md5="ad8ffedcea226edb7a217ee4adf597f9" arch="all" />
+        <package name="psa-passwd" version="5.0.7" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="unknown_dir/psa-passwd_5.0.7-v.ubuntu.22.04+p18.0.63.0+t240715.1009_all.deb" size="589132" buildtime="0" md5="ad8ffedcea226edb7a217ee4adf597f9" arch="all" />
+        <package name="psa-turba" version="4.2.29" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="opt/horde/psa-turba_4.2.29-v.ubuntu.22.04+p18.0.63.0+t240715.1009_all.deb" size="1028020" buildtime="0" md5="f82479e108710959becd472d57ded298" arch="all" />
+        <package name="psa-turba" version="4.2.29" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="unknown_dir/psa-turba_4.2.29-v.ubuntu.22.04+p18.0.63.0+t240715.1009_all.deb" size="1028020" buildtime="0" md5="f82479e108710959becd472d57ded298" arch="all" />
+    </component>
+    <component name="roundcube" description="Roundcube" classes="vendor=parallels">
+        <bootstrapper>
+            <package name="pp18.0.63-bootstrapper" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1332" file="bootstrapper/pp18.0.63-bootstrapper_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1332_amd64.deb" size="219116" buildtime="0" md5="588fcb78a994ca459c76686101b29568" classes="aspect=panel" arch="amd64" />
+            <package name="sw-engine-cli-6.63" version="6.63.0" release="ubuntu.22.04.240730.0658" file="bootstrapper/sw-engine-cli-6.63_6.63.0-ubuntu.22.04.240730.0658_amd64.deb" size="5068934" buildtime="0" md5="74d1f316b9d06bb16c0c3db7fe3fd227" classes="aspect=panel" arch="amd64" />
+            <action sequence="prep" exec-cmd="/opt/psa/bootstrapper/pp18.0.63-bootstrapper/bootstrapper.sh prep-install roundcube" />
+            <action sequence="post" exec-cmd="/opt/psa/bootstrapper/pp18.0.63-bootstrapper/bootstrapper.sh post-install roundcube" />
+        </bootstrapper>
+        <keypackages>
+            <keypackage name="plesk-roundcube" />
+        </keypackages>
+        <requires>php8.2</requires>
+        <package name="plesk-roundcube" version="1.6.8" release="v.ubuntu.22.04+p18.0.63.1+t240809.1058" file="opt/roundcube/plesk-roundcube_1.6.8-v.ubuntu.22.04+p18.0.63.1+t240809.1058_all.deb" size="4396924" buildtime="0" md5="46f10fd5b01fe885098f1074683720ab" arch="all" />
+        <package name="plesk-roundcube" version="1.6.8" release="v.ubuntu.22.04+p18.0.63.1+t240809.1058" file="unknown_dir/plesk-roundcube_1.6.8-v.ubuntu.22.04+p18.0.63.1+t240809.1058_all.deb" size="4396924" buildtime="0" md5="46f10fd5b01fe885098f1074683720ab" arch="all" />
+    </component>
+    <component name="mod_fcgid" description="mod_fcgid" classes="vendor=parallels">
+        <keypackages>
+            <keypackage name="libapache2-mod-fcgid-psa" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="libapache2-mod-fcgid" />
+        </keypackages>
+        <requires>webservers</requires>
+        <package name="libapache2-mod-fcgid-psa" version="2.3.9.5" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="opt/hosting/fcgid/libapache2-mod-fcgid-psa_2.3.9.5-v.ubuntu.22.04+p18.0.63.0+t240715.1009_amd64.deb" size="82360" buildtime="0" md5="99e9ad106cd8428d7cd41d540e84b3c9" arch="amd64" />
+        <package name="libapache2-mod-fcgid-psa" version="2.3.9.5" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="unknown_dir/libapache2-mod-fcgid-psa_2.3.9.5-v.ubuntu.22.04+p18.0.63.0+t240715.1009_amd64.deb" size="82360" buildtime="0" md5="99e9ad106cd8428d7cd41d540e84b3c9" arch="amd64" />
+    </component>
+    <component name="mod_perl" description="mod_perl" hidden="true" classes="vendor=os" show_installed_hidden="true">
+        <keypackages>
+            <keypackage name="libapache2-mod-perl2" />
+        </keypackages>
+        <requires>webservers</requires>
+    </component>
+    <component name="proftpd" description="ProFTPD" classes="vendor=parallels">
+        <bootstrapper>
+            <package name="pp18.0.63-bootstrapper" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1332" file="bootstrapper/pp18.0.63-bootstrapper_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1332_amd64.deb" size="219116" buildtime="0" md5="588fcb78a994ca459c76686101b29568" classes="aspect=panel" arch="amd64" />
+            <package name="sw-engine-cli-6.63" version="6.63.0" release="ubuntu.22.04.240730.0658" file="bootstrapper/sw-engine-cli-6.63_6.63.0-ubuntu.22.04.240730.0658_amd64.deb" size="5068934" buildtime="0" md5="74d1f316b9d06bb16c0c3db7fe3fd227" classes="aspect=panel" arch="amd64" />
+            <action sequence="post" exec-cmd="touch /var/lock/plesk_deferred_ftp_proftpd_configure" />
+        </bootstrapper>
+        <keypackages>
+            <keypackage name="psa-proftpd" />
+        </keypackages>
+        <package name="psa-proftpd" version="1.3.8b" release="v.ubuntu.22.04+p18.0.63.0+t240725.0655" file="opt/hosting/proftpd/psa-proftpd_1.3.8b-v.ubuntu.22.04+p18.0.63.0+t240725.0655_amd64.deb" size="1491704" buildtime="0" md5="25b3a137c36bc73b02d3909855bf0116" arch="amd64" />
+        <package name="psa-proftpd" version="1.3.8b" release="v.ubuntu.22.04+p18.0.63.0+t240725.0655" file="unknown_dir/psa-proftpd_1.3.8b-v.ubuntu.22.04+p18.0.63.0+t240725.0655_amd64.deb" size="1491704" buildtime="0" md5="25b3a137c36bc73b02d3909855bf0116" arch="amd64" />
+    </component>
+    <component name="webalizer" description="Webalizer" classes="vendor=os">
+        <keypackages>
+            <keypackage name="webalizer" />
+        </keypackages>
+        <requires>panel</requires>
+    </component>
+    <component name="awstats" description="AWStats" classes="vendor=os">
+        <keypackages>
+            <keypackage name="plesk-awstats-configurator" />
+            <keypackage name="awstats" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="plesk-awstats-configurator" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="awstats" />
+        </keypackages>
+        <requires>panel</requires>
+        <package name="plesk-awstats-configurator" version="18.0" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="opt/awstats/plesk-awstats-configurator_18.0-v.ubuntu.22.04+p18.0.63.0+t240715.1009_all.deb" size="16124" buildtime="0" md5="fed5bbdd791d265ae878b1e0356078b1" arch="all" />
+        <package name="plesk-awstats-configurator" version="18.0" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="unknown_dir/plesk-awstats-configurator_18.0-v.ubuntu.22.04+p18.0.63.0+t240715.1009_all.deb" size="16124" buildtime="0" md5="fed5bbdd791d265ae878b1e0356078b1" arch="all" />
+    </component>
+    <component name="fail2ban" description="Fail2Ban" classes="vendor=parallels">
+        <bootstrapper>
+            <package name="pp18.0.63-bootstrapper" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1332" file="bootstrapper/pp18.0.63-bootstrapper_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1332_amd64.deb" size="219116" buildtime="0" md5="588fcb78a994ca459c76686101b29568" classes="aspect=panel" arch="amd64" />
+            <package name="sw-engine-cli-6.63" version="6.63.0" release="ubuntu.22.04.240730.0658" file="bootstrapper/sw-engine-cli-6.63_6.63.0-ubuntu.22.04.240730.0658_amd64.deb" size="5068934" buildtime="0" md5="74d1f316b9d06bb16c0c3db7fe3fd227" classes="aspect=panel" arch="amd64" />
+            <action sequence="prep" exec-cmd="/opt/psa/bootstrapper/pp18.0.63-bootstrapper/bootstrapper.sh prep-install fail2ban-configurator" />
+            <action sequence="post" exec-cmd="/opt/psa/bootstrapper/pp18.0.63-bootstrapper/bootstrapper.sh post-install fail2ban-configurator" />
+        </bootstrapper>
+        <keypackages>
+            <keypackage name="plesk-fail2ban-configurator" />
+            <keypackage name="fail2ban" />
+        </keypackages>
+        <package name="fail2ban" version="1:1.1.0" release="v.ubuntu.22.04+p18.0.63.0+t240725.0655" file="opt/fail2ban/fail2ban_1.1.0-v.ubuntu.22.04+p18.0.63.0+t240725.0655_all.deb" size="715148" buildtime="0" md5="99dca08212e5ef341878a470692cf2da" arch="all" />
+        <package name="fail2ban" version="1:1.1.0" release="v.ubuntu.22.04+p18.0.63.0+t240725.0655" file="unknown_dir/fail2ban_1.1.0-v.ubuntu.22.04+p18.0.63.0+t240725.0655_all.deb" size="715148" buildtime="0" md5="99dca08212e5ef341878a470692cf2da" arch="all" />
+        <package name="plesk-fail2ban-configurator" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1332" file="opt/fail2ban/plesk-fail2ban-configurator_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1332_all.deb" size="42432" buildtime="0" md5="634a0768f86952e6ce29b0a3919ed459" classes="aspect=panel" arch="all" />
+    </component>
+    <component name="modsecurity" description="ModSecurity" classes="vendor=mixed">
+        <keypackages>
+            <keypackage name="plesk-modsecurity-crs" />
+            <keypackage name="plesk-modsecurity-configurator" />
+            <keypackage name="libapache2-modsecurity-plesk" />
+        </keypackages>
+        <keypackages>
+            <keypackage name="plesk-modsecurity-crs" />
+            <keypackage name="plesk-modsecurity-configurator" />
+            <keypackage name="libapache2-modsecurity" />
+        </keypackages>
+        <package name="libapache2-modsecurity-plesk" version="1:2.9.7" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="opt/hosting/modsecurity/libapache2-modsecurity-plesk_2.9.7-v.ubuntu.22.04+p18.0.63.0+t240715.1009_amd64.deb" size="261936" buildtime="0" md5="ad3216697d9e7e31b5c7d5e5d1e96f28" arch="amd64" />
+        <package name="libapache2-modsecurity-plesk" version="1:2.9.7" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="unknown_dir/libapache2-modsecurity-plesk_2.9.7-v.ubuntu.22.04+p18.0.63.0+t240715.1009_amd64.deb" size="261936" buildtime="0" md5="ad3216697d9e7e31b5c7d5e5d1e96f28" arch="amd64" />
+        <package name="plesk-modsecurity-configurator" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="opt/hosting/modsecurity/plesk-modsecurity-configurator_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1037_all.deb" size="431348" buildtime="0" md5="fb05cb71f140fe105fea6ae84b99e493" classes="aspect=panel" arch="all" />
+        <package name="plesk-modsecurity-crs" version="1:4.3.0" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="opt/hosting/modsecurity/plesk-modsecurity-crs_4.3.0-v.ubuntu.22.04+p18.0.63.0+t240715.1009_amd64.deb" size="222772" buildtime="0" md5="0b8067a6c01966ff5ec41573eaf66ffe" arch="amd64" />
+        <package name="plesk-modsecurity-crs" version="1:4.3.0" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="unknown_dir/plesk-modsecurity-crs_4.3.0-v.ubuntu.22.04+p18.0.63.0+t240715.1009_amd64.deb" size="222772" buildtime="0" md5="0b8067a6c01966ff5ec41573eaf66ffe" arch="amd64" />
+    </component>
+    <component name="passenger" description="Phusion Passenger server" classes="vendor=parallels">
+        <keypackages>
+            <keypackage name="libapache2-mod-passenger-plesk" />
+            <keypackage name="passenger" />
+        </keypackages>
+        <requires>panel</requires>
+        <package name="libapache2-mod-passenger-plesk" version="1:6.0.22" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="opt/passenger/libapache2-mod-passenger-plesk_6.0.22-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="306292" buildtime="0" md5="9a4e133801347a201aa21004469d3f43" arch="amd64" />
+        <package name="libapache2-mod-passenger-plesk" version="1:6.0.22" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="unknown_dir/libapache2-mod-passenger-plesk_6.0.22-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="306292" buildtime="0" md5="9a4e133801347a201aa21004469d3f43" arch="amd64" />
+        <package name="passenger" version="1:6.0.22" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="opt/passenger/passenger_6.0.22-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="6019156" buildtime="0" md5="066b5abae42d5b98fbe2ea209cdb19e3" arch="amd64" />
+        <package name="passenger" version="1:6.0.22" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="unknown_dir/passenger_6.0.22-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="6019156" buildtime="0" md5="066b5abae42d5b98fbe2ea209cdb19e3" arch="amd64" />
+        <package name="passenger-dev" version="1:6.0.22" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="opt/passenger/passenger-dev_6.0.22-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="4767408" buildtime="0" md5="d566a329a79f58059cbd24ad1f39ad29" arch="amd64" />
+        <package name="passenger-dev" version="1:6.0.22" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="unknown_dir/passenger-dev_6.0.22-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="4767408" buildtime="0" md5="d566a329a79f58059cbd24ad1f39ad29" arch="amd64" />
+        <package name="passenger-native-libs" version="1:6.0.22" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="opt/passenger/passenger-native-libs_6.0.22-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="6292" buildtime="0" md5="8aa70e0d41153119582167622bab857a" arch="amd64" />
+        <package name="passenger-native-libs" version="1:6.0.22" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="unknown_dir/passenger-native-libs_6.0.22-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="6292" buildtime="0" md5="8aa70e0d41153119582167622bab857a" arch="amd64" />
+    </component>
+    <component name="l10n" description="All language localization for Plesk" classes="vendor=parallels,aspect=panel">
+        <bootstrapper>
+            <package name="pp18.0.63-bootstrapper" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1332" file="bootstrapper/pp18.0.63-bootstrapper_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1332_amd64.deb" size="219116" buildtime="0" md5="588fcb78a994ca459c76686101b29568" classes="aspect=panel" arch="amd64" />
+            <package name="sw-engine-cli-6.63" version="6.63.0" release="ubuntu.22.04.240730.0658" file="bootstrapper/sw-engine-cli-6.63_6.63.0-ubuntu.22.04.240730.0658_amd64.deb" size="5068934" buildtime="0" md5="74d1f316b9d06bb16c0c3db7fe3fd227" classes="aspect=panel" arch="amd64" />
+            <action sequence="prep" exec-cmd="/opt/psa/bootstrapper/pp18.0.63-bootstrapper/bootstrapper.sh prep-install l10n" />
+            <action sequence="post" exec-cmd="/opt/psa/bootstrapper/pp18.0.63-bootstrapper/bootstrapper.sh post-install l10n" />
+        </bootstrapper>
+        <keypackages>
+            <keypackage name="plesk-l10n" />
+        </keypackages>
+        <requires>panel</requires>
+        <package name="plesk-l10n" version="18.0" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="opt/l10n/plesk-l10n_18.0-v.ubuntu.22.04+p18.0.63.3+t240823.1037_all.deb" size="7817024" buildtime="0" md5="4cb755a193852ab1bab9feb5424cc77a" arch="all" />
+    </component>
+    <component name="git" description="Git" classes="vendor=parallels">
+        <keypackages>
+            <keypackage name="ext-git" />
+        </keypackages>
+        <requires>panel</requires>
+        <package name="plesk-git-http" version="18.0" release="v.ubuntu.22.04+p18.0.61.0+t240426.1307" file="opt/git/plesk-git-http_18.0-v.ubuntu.22.04+p18.0.61.0+t240426.1307_amd64.deb" size="3024" buildtime="0" md5="21740f4c3da041df94721fc290bfb21d" arch="amd64" />
+        <package name="plesk-git-http" version="18.0" release="v.ubuntu.22.04+p18.0.61.0+t240426.1307" file="unknown_dir/plesk-git-http_18.0-v.ubuntu.22.04+p18.0.61.0+t240426.1307_amd64.deb" size="3024" buildtime="0" md5="21740f4c3da041df94721fc290bfb21d" arch="amd64" />
+    </component>
+    <component name="resctrl" description="Resource Controller (Cgroups)" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="plesk-resctrl" />
+        </keypackages>
+        <requires>panel</requires>
+        <package name="plesk-resctrl" version="18.0" release="v.ubuntu.22.04+p18.0.63.0+t240715.1009" file="opt/resctrl/plesk-resctrl_18.0-v.ubuntu.22.04+p18.0.63.0+t240715.1009_amd64.deb" size="42716" buildtime="0" md5="5b019a2511f31439d15d864d5dc441ad" arch="amd64" />
+    </component>
+    <component name="nodejs" description="NodeJS support" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-nodejs" />
+        </keypackages>
+        <requires>panel</requires>
+        <requires>passenger</requires>
+    </component>
+    <component name="gems-pre" description="Tools required for building Ruby gems" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="plesk-gems-pre" />
+        </keypackages>
+        <requires>ruby</requires>
+        <package name="plesk-gems-pre" version="0.0.1" release="v.ubuntu.22.04+p18.0.61.0+t240426.1307" file="opt/ruby/plesk-gems-pre_0.0.1-v.ubuntu.22.04+p18.0.61.0+t240426.1307_all.deb" size="1276" buildtime="0" md5="6b126daf6d87cca98205b67bed10332d" arch="all" />
+    </component>
+    <component name="wp-toolkit" description="" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-wp-toolkit" />
+        </keypackages>
+        <requires>panel</requires>
+    </component>
+    <component name="advisor" description="" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-advisor" />
+        </keypackages>
+        <requires>panel</requires>
+    </component>
+    <component name="ruby" description="Ruby support" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-ruby" />
+        </keypackages>
+        <requires>panel</requires>
+        <requires>passenger</requires>
+    </component>
+    <component name="nginx" description="Nginx web server" classes="vendor=parallels">
+        <keypackages>
+            <keypackage name="sw-nginx" />
+        </keypackages>
+        <package name="mod-security-v3" version="3.0.12" release="v.ubuntu.22.04+p18.0.63.1+t240809.1058" file="opt/hosting/nginx/mod-security-v3_3.0.12-v.ubuntu.22.04+p18.0.63.1+t240809.1058_amd64.deb" size="475148" buildtime="0" md5="885c3f32cc8f4d198e713f1297f26ee6" arch="amd64" />
+        <package name="mod-security-v3" version="3.0.12" release="v.ubuntu.22.04+p18.0.63.1+t240809.1058" file="unknown_dir/mod-security-v3_3.0.12-v.ubuntu.22.04+p18.0.63.1+t240809.1058_amd64.deb" size="475148" buildtime="0" md5="885c3f32cc8f4d198e713f1297f26ee6" arch="amd64" />
+        <package name="sw-nginx" version="1.26.1.1" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="opt/hosting/nginx/sw-nginx_1.26.1.1-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="4780224" buildtime="0" md5="1daf81484502439a23bc83c262d9eeab" arch="amd64" />
+        <package name="sw-nginx" version="1.26.1.1" release="v.ubuntu.22.04+p18.0.63.3+t240823.1037" file="unknown_dir/sw-nginx_1.26.1.1-v.ubuntu.22.04+p18.0.63.3+t240823.1037_amd64.deb" size="4780224" buildtime="0" md5="1daf81484502439a23bc83c262d9eeab" arch="amd64" />
+    </component>
+    <component name="pmm" description="" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-panel-migrator" />
+        </keypackages>
+        <requires>panel</requires>
+    </component>
+    <component name="xovi" description="" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-xovi" />
+        </keypackages>
+        <requires>panel</requires>
+    </component>
+    <component name="imunifyav" description="" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-revisium-antivirus" />
+        </keypackages>
+        <requires>panel</requires>
+    </component>
+    <component name="sslit" description="" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-sslit" />
+        </keypackages>
+        <requires>panel</requires>
+    </component>
+    <component name="letsencrypt" description="" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-letsencrypt" />
+        </keypackages>
+        <requires>panel</requires>
+    </component>
+    <component name="repair-kit" description="" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-repair-kit" />
+        </keypackages>
+        <requires>panel</requires>
+    </component>
+    <component name="composer" description="" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-composer" />
+        </keypackages>
+        <requires>panel</requires>
+    </component>
+    <component name="monitoring" description="" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-monitoring" />
+        </keypackages>
+        <requires>panel</requires>
+    </component>
+    <component name="log-browser" description="" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-log-browser" />
+        </keypackages>
+        <requires>panel</requires>
+    </component>
+    <component name="log-browser" description="" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-log-browser" />
+        </keypackages>
+        <requires>panel</requires>
+    </component>
+    <component name="ssh-terminal" description="" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-ssh-terminal" />
+        </keypackages>
+        <requires>panel</requires>
+    </component>
+    <component name="site-import" description="" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-site-import" />
+        </keypackages>
+        <requires>panel</requires>
+    </component>
+    <component name="sitejet" description="" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-plesk-sitejet" />
+        </keypackages>
+        <requires>panel</requires>
+    </component>
+    <component name="ntp-timesync" description="" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-ntp-timesync" />
+        </keypackages>
+        <requires>panel</requires>
+    </component>
+    <component name="sophos" description="" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-sophos-av" />
+        </keypackages>
+        <requires>panel</requires>
+    </component>
+    <component name="mfa" description="" classes="vendor=parallels,aspect=panel">
+        <keypackages>
+            <keypackage name="ext-mfa" />
+        </keypackages>
+        <requires>panel</requires>
+    </component>
+    <installation_types>
+        <type name="Recommended,Typical" description="Install typically used components. Recommended for general use.">
+            <component>panel</component>
+            <component>roundcube</component>
+            <component>postfix</component>
+            <component>dovecot</component>
+            <component>mod_fcgid</component>
+            <component>proftpd</component>
+            <component>webalizer</component>
+            <component>awstats</component>
+            <component>webservers</component>
+            <component>nginx</component>
+            <component>mysqlgroup</component>
+            <component>config-troubleshooter</component>
+            <component>l10n</component>
+            <component>bind</component>
+            <component>wp-toolkit</component>
+            <component>advisor</component>
+            <component>git</component>
+            <component>xovi</component>
+            <component>imunifyav</component>
+            <component>fail2ban</component>
+            <component>modsecurity</component>
+            <component>sslit</component>
+            <component>letsencrypt</component>
+            <component>repair-kit</component>
+            <component>composer</component>
+            <component>monitoring</component>
+            <component>log-browser</component>
+            <component>ssh-terminal</component>
+            <component>site-import</component>
+            <component>sitejet</component>
+            <component>ntp-timesync</component>
+            <component>php8.2</component>
+            <component>php8.3</component>
+            <component>mfa</component>
+            <component>log-browser</component>
+        </type>
+        <type name="Full" description="Install all available components.">
+            <component>panel</component>
+            <component>roundcube</component>
+            <component>postfix</component>
+            <component>dovecot</component>
+            <component>mod_fcgid</component>
+            <component>proftpd</component>
+            <component>webalizer</component>
+            <component>awstats</component>
+            <component>webservers</component>
+            <component>nginx</component>
+            <component>mysqlgroup</component>
+            <component>config-troubleshooter</component>
+            <component>l10n</component>
+            <component>bind</component>
+            <component>wp-toolkit</component>
+            <component>advisor</component>
+            <component>git</component>
+            <component>xovi</component>
+            <component>imunifyav</component>
+            <component>fail2ban</component>
+            <component>modsecurity</component>
+            <component>sslit</component>
+            <component>letsencrypt</component>
+            <component>repair-kit</component>
+            <component>composer</component>
+            <component>monitoring</component>
+            <component>log-browser</component>
+            <component>ssh-terminal</component>
+            <component>site-import</component>
+            <component>sitejet</component>
+            <component>ntp-timesync</component>
+            <component>php8.1</component>
+            <component>php8.2</component>
+            <component>php8.3</component>
+            <component>mfa</component>
+            <component>log-browser</component>
+            <component>resctrl</component>
+            <component>drweb</component>
+            <component>postgresql</component>
+            <component>spamassassin</component>
+            <component>ruby</component>
+            <component>gems-pre</component>
+            <component>nodejs</component>
+            <component>pmm</component>
+            <component>psa-firewall</component>
+            <component>passenger</component>
+            <component>php7.4</component>
+            <component>phpgroup</component>
+            <component>horde</component>
+            <component>sophos</component>
+        </type>
+    </installation_types>
+    <component_groups>
+        <group name="hosting" description="Web hosting">
+            <component name="proftpd" />
+            <component name="webalizer" />
+            <component name="awstats" />
+            <component name="modsecurity" />
+            <component name="passenger" />
+            <component name="ruby" />
+            <component name="nodejs" />
+            <component name="gems-pre" />
+            <group name="apache_support" description="Apache">
+                <group type="radio" name="webservers" description="Apache versions">
+                    <component name="apache" />
+                    <component name="apache-sni" default="true" />
+                </group>
+                <component name="mod_fcgid" />
+                <component name="mod_perl" />
+                <component name="mod_python" />
+            </group>
+            <group name="php_comps" description="PHP interpreter versions">
+                <group type="radio" name="phpgroup" description="PHP interpreter versions">
+                    <component name="php5" />
+                </group>
+                <component name="php8.3" />
+                <component name="php8.2" />
+                <component name="php8.1" />
+                <component name="php8.0" />
+                <component name="php7.4" />
+                <component name="php7.3" />
+                <component name="php7.2" />
+                <component name="php7.1" />
+                <component name="php7.0" />
+                <component name="php5.6" />
+                <component name="php5.5" />
+                <component name="php5.4" />
+                <component name="php5.3" />
+                <component name="php5.2" />
+            </group>
+            <group name="nginx_comps" description="Nginx web server and reverse proxy server">
+                <component name="nginx" />
+            </group>
+        </group>
+        <group name="webmails" description="Webmail services">
+            <component name="horde" />
+            <component name="roundcube" default="true" />
+        </group>
+        <group name="mail" description="Mail hosting">
+            <group type="radio" name="mailservers" description="SMTP servers">
+                <component name="postfix" default="true" />
+                <component name="qmail" />
+                <component name="msmtp" />
+            </group>
+            <group type="radio" name="imapservers" description="IMAP/POP3 servers">
+                <component name="dovecot" default="true" />
+                <component name="courier" />
+            </group>
+            <component name="drweb" />
+            <component name="sophos" />
+            <component name="spamassassin" />
+            <component name="mailman" />
+        </group>
+        <group type="radio" name="mysqlgroup" description="MySQL server versions">
+            <component name="mysql-sys" default="true" />
+        </group>
+        <group name="extensions" description="Plesk extensions">
+            <component name="config-troubleshooter" />
+            <component name="psa-firewall" />
+            <component name="watchdog" />
+            <component name="wp-toolkit" />
+            <component name="advisor" />
+            <component name="xovi" />
+            <component name="imunifyav" />
+            <component name="sslit" />
+            <component name="letsencrypt" />
+            <component name="repair-kit" />
+            <component name="composer" />
+            <component name="monitoring" />
+            <component name="log-browser" />
+            <component name="ssh-terminal" />
+            <component name="site-import" />
+            <component name="sitejet" />
+            <component name="ntp-timesync" />
+            <component name="mfa" />
+        </group>
+    </component_groups>
+    <updates updates_dir="update-deb-Ubuntu-22.04-x86_64" headers_file="" />
+    <thirdparty thirdparty_dir="thirdparty-deb-Ubuntu-22.04-x86_64">
+        <package name="php-ioncube-loader" version="10.4.5" release="v.ubuntu.22.04+p18.0.61.0+t240426.1307" file="../dist-deb-Ubuntu-22.04-x86_64/contrib/php-ioncube-loader_10.4.5-v.ubuntu.22.04+p18.0.61.0+t240426.1307_amd64.deb" size="436788" buildtime="0" md5="d6185a9dd931c9645fd80daf73bebde7" arch="amd64" />
+        <package name="plesk-libboost-1.84" version="1.84.0" release="ubuntu.22.04.240314.1318" file="../dist-deb-Ubuntu-22.04-x86_64/contrib/plesk-libboost-1.84_1.84.0-ubuntu.22.04.240314.1318_amd64.deb" size="2210" buildtime="0" md5="c5ace6412de8a3edc65c2735d94058ec" arch="amd64" />
+        <package name="plesk-libboost-atomic1.84" version="1.84.0" release="ubuntu.22.04.240314.1318" file="../dist-deb-Ubuntu-22.04-x86_64/contrib/plesk-libboost-atomic1.84_1.84.0-ubuntu.22.04.240314.1318_amd64.deb" size="6710" buildtime="0" md5="4c79279fe357ca030793a6af78ddd74b" arch="amd64" />
+        <package name="plesk-libboost-chrono1.84" version="1.84.0" release="ubuntu.22.04.240314.1318" file="../dist-deb-Ubuntu-22.04-x86_64/contrib/plesk-libboost-chrono1.84_1.84.0-ubuntu.22.04.240314.1318_amd64.deb" size="15832" buildtime="0" md5="6a880f61b769d4756fa07cf75a1ad37a" arch="amd64" />
+        <package name="plesk-libboost-date-time1.84" version="1.84.0" release="ubuntu.22.04.240314.1318" file="../dist-deb-Ubuntu-22.04-x86_64/contrib/plesk-libboost-date-time1.84_1.84.0-ubuntu.22.04.240314.1318_amd64.deb" size="3102" buildtime="0" md5="639f7b90fd9f1a1a77e26fb85b955dbd" arch="amd64" />
+        <package name="plesk-libboost-filesystem1.84" version="1.84.0" release="ubuntu.22.04.240314.1318" file="../dist-deb-Ubuntu-22.04-x86_64/contrib/plesk-libboost-filesystem1.84_1.84.0-ubuntu.22.04.240314.1318_amd64.deb" size="66652" buildtime="0" md5="b04cca10e99e7ba8518c09a92e714165" arch="amd64" />
+        <package name="plesk-libboost-iostreams1.84" version="1.84.0" release="ubuntu.22.04.240314.1318" file="../dist-deb-Ubuntu-22.04-x86_64/contrib/plesk-libboost-iostreams1.84_1.84.0-ubuntu.22.04.240314.1318_amd64.deb" size="32908" buildtime="0" md5="cff70d8234f40761a0459a052e9fd1f5" arch="amd64" />
+        <package name="plesk-libboost-locale1.84" version="1.84.0" release="ubuntu.22.04.240314.1318" file="../dist-deb-Ubuntu-22.04-x86_64/contrib/plesk-libboost-locale1.84_1.84.0-ubuntu.22.04.240314.1318_amd64.deb" size="291136" buildtime="0" md5="f184c0d6cbe2d343315682ff98701cf1" arch="amd64" />
+        <package name="plesk-libboost-log1.84" version="1.84.0" release="ubuntu.22.04.240314.1318" file="../dist-deb-Ubuntu-22.04-x86_64/contrib/plesk-libboost-log1.84_1.84.0-ubuntu.22.04.240314.1318_amd64.deb" size="290948" buildtime="0" md5="d94ca4a2269006271cc744c49e40b100" arch="amd64" />
+        <package name="plesk-libboost-program-options1.84" version="1.84.0" release="ubuntu.22.04.240314.1318" file="../dist-deb-Ubuntu-22.04-x86_64/contrib/plesk-libboost-program-options1.84_1.84.0-ubuntu.22.04.240314.1318_amd64.deb" size="154614" buildtime="0" md5="21ffcb7813a26c381bc4ce29fe2b029b" arch="amd64" />
+        <package name="plesk-libboost-regex1.84" version="1.84.0" release="ubuntu.22.04.240314.1318" file="../dist-deb-Ubuntu-22.04-x86_64/contrib/plesk-libboost-regex1.84_1.84.0-ubuntu.22.04.240314.1318_amd64.deb" size="123022" buildtime="0" md5="94958a8dd6022cf2f2b2e731aaace6f6" arch="amd64" />
+        <package name="plesk-libboost-serialization1.84" version="1.84.0" release="ubuntu.22.04.240314.1318" file="../dist-deb-Ubuntu-22.04-x86_64/contrib/plesk-libboost-serialization1.84_1.84.0-ubuntu.22.04.240314.1318_amd64.deb" size="88776" buildtime="0" md5="5aee92fca41f657ac2aacd4bdb0f66ba" arch="amd64" />
+        <package name="plesk-libboost-system1.84" version="1.84.0" release="ubuntu.22.04.240314.1318" file="../dist-deb-Ubuntu-22.04-x86_64/contrib/plesk-libboost-system1.84_1.84.0-ubuntu.22.04.240314.1318_amd64.deb" size="3086" buildtime="0" md5="cdc3eece5bc5f690df1aa2a7b8179f2a" arch="amd64" />
+        <package name="plesk-libboost-thread1.84" version="1.84.0" release="ubuntu.22.04.240314.1318" file="../dist-deb-Ubuntu-22.04-x86_64/contrib/plesk-libboost-thread1.84_1.84.0-ubuntu.22.04.240314.1318_amd64.deb" size="45296" buildtime="0" md5="0986578c0570c11ba3a86a9cd6148082" arch="amd64" />
+        <package name="plesk-libpoco-1.12.4" version="1.12.4" release="ubuntu.22.04.240426.1307" file="../dist-deb-Ubuntu-22.04-x86_64/contrib/plesk-libpoco-1.12.4_1.12.4-ubuntu.22.04.240426.1307_amd64.deb" size="3647326" buildtime="0" md5="cc69d9039c0977a9182e55aed78160ab" arch="amd64" />
+        <package name="plesk-libstdc++13.2.0" version="13.2.0" release="ubuntu.22.04.240311.1816" file="../dist-deb-Ubuntu-22.04-x86_64/contrib/plesk-libstdc++13.2.0_13.2.0-ubuntu.22.04.240311.1816_amd64.deb" size="980986" buildtime="0" md5="9201366e8dd2cecb61f5949ab49c825e" arch="amd64" />
+        <package name="plesk-mysql-server" version="18.0.2" release="v.ubuntu.22.04+p18.0.61.0+t240426.1307" file="../dist-deb-Ubuntu-22.04-x86_64/contrib/plesk-mysql-server_18.0.2-v.ubuntu.22.04+p18.0.61.0+t240426.1307_all.deb" size="1192" buildtime="0" md5="b1ee1262d899773462ad02e335c53df3" arch="all" />
+        <package name="plesk-python3-regex" version="2021.11.10" release="v.ubuntu.22.04+p18.0.61.0+t240426.1307" file="../dist-deb-Ubuntu-22.04-x86_64/contrib/plesk-python3-regex_2021.11.10-v.ubuntu.22.04+p18.0.61.0+t240426.1307_amd64.deb" size="331572" buildtime="0" md5="e8e083d57fa1599dfea904b98013f58d" arch="amd64" />
+        <package name="psa-pear" version="1.10.9" release="20191112.ubuntu.22.04.240426.1307" file="../dist-deb-Ubuntu-22.04-x86_64/contrib/psa-pear_1.10.9-20191112.ubuntu.22.04.240426.1307_all.deb" size="338160" buildtime="0" md5="67a779a6b9f93c23db1ee0ae42f5dae3" arch="all" />
+        <package name="sw-tar" version="1.34" release="v.ubuntu.22.04+p18.0.61.0+t240426.1307" file="../dist-deb-Ubuntu-22.04-x86_64/contrib/sw-tar_1.34-v.ubuntu.22.04+p18.0.61.0+t240426.1307_amd64.deb" size="478264" buildtime="0" md5="05dd2f04f860174f826413c139b2d7e3" arch="amd64" />
+    </thirdparty>
+    <extras extras_dir="extras-deb-Ubuntu-22.04-x86_64" persistent_repo="true" />
+    <force_remove_packages />
+</build_1>

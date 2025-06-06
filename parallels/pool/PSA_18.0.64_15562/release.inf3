@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<product id="plesk" name="Plesk">
+	<active_icon src="http://autoinstall.plesk.com/icon_plesk.png" />
+	<disabled_icon src="http://autoinstall.plesk.com/icon_plesk_disabled.png" />
+	<product_site src="http://www.plesk.com/" />
+	<kb_article_upgrade_from_not_supported_versions src="http://docs.plesk.com/release-notes/current/software-requirements/#s3" />
+
+	<keypackages>
+		<keypackage>psa</keypackage>
+	</keypackages>
+
+	<release id="PLESK_0_0_0" name="Plesk emtpy release for compatibility with old AI" version="0.0.0" upgrade_allowed_from="0.0.0" tags="development" hide_tags="interactive inanycase" />
+
+	<release_1 id="PLESK_18_0_64" name="Plesk Obsidian 18.0.64" version="18.0.64" codename="Obsidian" details_url="http://docs.plesk.com/release-notes/18.0/change-log/" nokeyupdate_from="18.0" upgrade_allowed_from="17.0.17" tags="development,testing,current,release,stable" promoted_tags="" hide_tags="interactive inanycase">
+		<build os_name="Linux" os_vendor="AlmaLinux" os_version="8" os_arch="x86_64" config="plesk-18.0.64-rhel8-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="AlmaLinux" os_version="9" os_arch="x86_64" config="plesk-18.0.64-rhel9-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="CentOS" os_version="7" os_arch="x86_64" config="plesk-18.0.64-cos7-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="CloudLinux" os_version="7" os_arch="x86_64" config="plesk-18.0.64-cl7-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="CloudLinux" os_version="8" os_arch="x86_64" config="plesk-18.0.64-cl8-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Debian" os_version="10.0" os_arch="x86_64" config="plesk-18.0.64-deb10.0-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Debian" os_version="11.0" os_arch="x86_64" config="plesk-18.0.64-deb11.0-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Debian" os_version="12.0" os_arch="x86_64" config="plesk-18.0.64-deb12.0-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="RedHat" os_version="el7" os_arch="x86_64" config="plesk-18.0.64-cos7-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="RedHat" os_version="el8" os_arch="x86_64" config="plesk-18.0.64-rhel8-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="RedHat" os_version="el9" os_arch="x86_64" config="plesk-18.0.64-rhel9-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Rocky" os_version="8" os_arch="x86_64" config="plesk-18.0.64-rhel8-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Ubuntu" os_version="18.04" os_arch="x86_64" config="plesk-18.0.64-ubt18.04-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Ubuntu" os_version="20.04" os_arch="x86_64" config="plesk-18.0.64-ubt20.04-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Ubuntu" os_version="22.04" os_arch="aarch64" config="plesk-18.0.64-ubt22.04-aarch64.inf3" />
+		<build os_name="Linux" os_vendor="Ubuntu" os_version="22.04" os_arch="x86_64" config="plesk-18.0.64-ubt22.04-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Ubuntu" os_version="24.04" os_arch="x86_64" config="plesk-18.0.64-ubt24.04-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="VZLinux" os_version="7" os_arch="x86_64" config="plesk-18.0.64-cos7-x86_64.inf3" />
+	</release_1>
+</product>

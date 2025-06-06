@@ -1,0 +1,46 @@
+volumes:
+    radius_data: {}
+    mysql_data: {}
+    radius_sites: {}
+
+networks:
+  interna:
+
+services:
+
+  radius:
+    image: frauhottelmann/daloradius-docker:1.2
+    container_name: radius
+    restart: always
+    depends_on:
+      - "radius-mysql"
+    ports:
+      - '0.0.0.0:1812:1812/udp'
+      - '0.0.0.0:1813:1813/udp'
+    environment:
+      - MYSQL_HOST=radius-mysql
+      - MYSQL_PORT=3306
+      - MYSQL_DATABASE=radius
+      - MYSQL_USER=radius
+      - MYSQL_PASSWORD=corpoh10
+    volumes:
+      - "radius_data:/var"
+      - "radius_sites:/etc/freeradius/3.0/sites-enabled;5;120;5;12≈ç"
+      - "./entrypoint.sh:/entrypoint.sh"
+      - "/etc/localtime:/etc/localtime:ro"
+    entrypoint: ["/entrypoint.sh"]
+
+  radius-mysql:;5;120~;5;120~;5;120~;5;120~;5;120~;5;120~;5;120~;5;120~;5;120~;5;120~;5;120~;5;120~;5;120~;5;120~;5;120~;5;120~
+    image: mariadb:latest #10.3
+    container_name: radius-mysql
+    restart: always
+    ports:
+      - '33060:3306'
+    environment:
+      - MYSQL_DATABASE=radius
+      - MYSQL_USER=radius
+      - MYSQL_PASSWORD=corpoh10
+      - MYSQL_ROOT_PASSWORD=corpoh10
+    volumes:
+      - "mysql_data:/var/lib/mysql"
+      - "/etc/localtime:/etc/localtime:ro"

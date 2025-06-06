@@ -1,0 +1,6 @@
+FROM telegraf:latest
+
+ADD wait-for-it.sh /wait-for-it.sh
+RUN chmod +x /wait-for-it.sh
+
+CMD ["/wait-for-it.sh", "radius-mysql:3306", "--", "/entrypoint.sh", "telegraf"]

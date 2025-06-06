@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon id="php83" name="PHP v 8.3">
+
+	<release id="PHP_8_3" name="PHP v 8.3" version="8.3.21">
+		<compatibility_info>
+			<compatible product_id="plesk" from_version="18.0.57" to_version="18.0.99" />
+		</compatibility_info>
+		<build os_name="Linux" os_vendor="AlmaLinux" os_version="8" os_arch="x86_64" config="php83-rhel8-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="AlmaLinux" os_version="9" os_arch="x86_64" config="php83-rhel9-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="CentOS" os_version="7" os_arch="x86_64" config="php83-cos7-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="CentOS" os_version="8" os_arch="x86_64" config="php83-rhel8-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="CloudLinux" os_version="7" os_arch="x86_64" config="php83-cos7-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="CloudLinux" os_version="8" os_arch="x86_64" config="php83-rhel8-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="CloudLinux" os_version="9" os_arch="x86_64" config="php83-rhel9-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Debian" os_version="10.0" os_arch="x86_64" config="php83-deb10.0-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Debian" os_version="11.0" os_arch="x86_64" config="php83-deb11.0-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Debian" os_version="12.0" os_arch="x86_64" config="php83-deb12.0-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="RedHat" os_version="el8" os_arch="x86_64" config="php83-rhel8-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="RedHat" os_version="el9" os_arch="x86_64" config="php83-rhel9-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Rocky" os_version="8" os_arch="x86_64" config="php83-rhel8-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Ubuntu" os_version="18.04" os_arch="x86_64" config="php83-ubt18.04-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Ubuntu" os_version="20.04" os_arch="x86_64" config="php83-ubt20.04-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Ubuntu" os_version="22.04" os_arch="aarch64" config="php83-ubt22.04-aarch64.inf3" />
+		<build os_name="Linux" os_vendor="Ubuntu" os_version="22.04" os_arch="x86_64" config="php83-ubt22.04-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Ubuntu" os_version="24.04" os_arch="x86_64" config="php83-ubt24.04-x86_64.inf3" />
+	</release>
+</addon>

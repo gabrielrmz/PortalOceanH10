@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon id="php80" name="PHP v 8.0">
+	<release id="PHP80_17" name="PHP v 8.0" version="8.0">
+		<compatibility_info>
+			<compatible product_id="plesk" from_version="18.0.21" to_version="18.0.99" />
+		</compatibility_info>
+
+		<build os_name="Linux" os_vendor="CentOS" os_version="8" os_arch="x86_64" config="pool/PHP_8.0.16_86/php80-rhel8-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Ubuntu" os_version="16.04" os_arch="x86_64" config="pool/PHP_8.0.3_36/php80-ubt16.04-x86_64.inf3" />
+                <build os_name="Linux" os_vendor="Debian" os_version="9.0" os_arch="x86_64" config="pool/PHP_8.0.20_104/php80-deb9.0-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="Ubuntu" os_version="20.04" os_arch="aarch64" config="pool/PHP_8.0.25_141/php80-ubt20.04-aarch64.inf3" />
+	</release>
+</addon>

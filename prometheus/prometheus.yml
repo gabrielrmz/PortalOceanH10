@@ -1,0 +1,20 @@
+global:
+  scrape_interval: 10s
+  evaluation_interval: 10s
+
+  external_labels:
+    environment: Cloud-Portal
+
+remote_write:
+  - url: https://enlaces.oceanbyh10.com:9090/api/v1/write
+    basic_auth:
+      username: admin
+      password: leirbag22
+
+scrape_configs:
+
+  - job_name: 'telegraf'
+    scrape_interval: 10s
+    static_configs:
+      - targets:
+        - "telegraf:9273"

@@ -587,3 +587,37 @@ git pull
 cd 
 docker compose restart
 docker compose ps
+docker compose down telegraf
+docker compose restart
+docker compose ps
+ls
+docker compose down 
+nano docker-compose.yml
+docker compose up -d
+docker compose restart
+docker compose ps
+docker compose down 
+nano docker-compose.yml
+docker compose up -d
+docker compose restart
+dokcer compose ps
+docker compose ps
+docker compose down
+nano docker-compose.yml
+docker compose up -d
+docker compose restart
+docker compose ps
+docker compose down 
+nano docker-compose.yml
+docker compose up -d
+docker compose ps
+git add .
+git commit -m "asdasd"
+git push
+git add .
+git commit -m "asdad"
+cd /var/lib/docker/volumes/root_telegraf_data/_data
+git pull
+cd
+docker compose restart
+docker compose ps

@@ -2,7 +2,8 @@
 <vendors>
   <vendor id="swsoft">
     <products>
-      <product id="plesk" name="Plesk" reference="pool/PSA_18.0.70_17005/release.inf3" release-key="plesk-18.0.70"/>
+      <product id="plesk" name="Plesk" reference="pool/PSA_18.0.71_17220/release.inf3" release-key="plesk-18.0.71"/>
+      <product id="plesk" name="Plesk" reference="pool/PSA_18.0.70_17122/release.inf3" release-key="plesk-18.0.70"/>
       <product id="plesk" name="Plesk" reference="pool/PSA_18.0.69_17010/release.inf3" release-key="plesk-18.0.69"/>
       <addon id="wpb-18.0.69" name="WPB 18.0.69" reference="pool/WPB_18.0.69_87/release.inf3"/>
       <product id="plesk" name="Plesk" reference="pool/PSA_18.0.68_16616/release.inf3" release-key="plesk-18.0.68"/>

@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <addon id="php83" name="PHP v 8.3">
 
-	<release id="PHP_8_3" name="PHP v 8.3" version="8.3.21">
+	<release id="PHP_8_3" name="PHP v 8.3" version="8.3.23">
 		<compatibility_info>
 			<compatible product_id="plesk" from_version="18.0.57" to_version="18.0.99" />
 		</compatibility_info>
+		<build os_name="Linux" os_vendor="AlmaLinux" os_version="10" os_arch="x86_64" config="php83-rhel10-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="AlmaLinux" os_version="8" os_arch="x86_64" config="php83-rhel8-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="AlmaLinux" os_version="9" os_arch="x86_64" config="php83-rhel9-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="CentOS" os_version="7" os_arch="x86_64" config="php83-cos7-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="CentOS" os_version="8" os_arch="x86_64" config="php83-rhel8-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="CloudLinux" os_version="10" os_arch="x86_64" config="php83-rhel10-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="CloudLinux" os_version="7" os_arch="x86_64" config="php83-cos7-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="CloudLinux" os_version="8" os_arch="x86_64" config="php83-rhel8-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="CloudLinux" os_version="9" os_arch="x86_64" config="php83-rhel9-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="Debian" os_version="10.0" os_arch="x86_64" config="php83-deb10.0-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="Debian" os_version="11.0" os_arch="x86_64" config="php83-deb11.0-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="Debian" os_version="12.0" os_arch="x86_64" config="php83-deb12.0-x86_64.inf3" />
+		<build os_name="Linux" os_vendor="RedHat" os_version="el10" os_arch="x86_64" config="php83-rhel10-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="RedHat" os_version="el8" os_arch="x86_64" config="php83-rhel8-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="RedHat" os_version="el9" os_arch="x86_64" config="php83-rhel9-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="Rocky" os_version="8" os_arch="x86_64" config="php83-rhel8-x86_64.inf3" />

@@ -1,5 +1,8 @@
 authorize
 3306
+dashboard
+[[inputs.exec]]
+dashb
 dash
 
 

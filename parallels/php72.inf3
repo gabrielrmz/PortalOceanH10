@@ -7,6 +7,8 @@
 		</compatibility_info>
 		<build os_name="Linux" os_vendor="Debian" os_version="11.0" os_arch="x86_64" config="pool/PHP_7.2.34_22/php72-deb11.0-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="Ubuntu" os_version="22.04" os_arch="x86_64" config="pool/PHP_7.2.34_22/php72-ubt22.04-x86_64.inf3" />
+                <build os_name="Linux" os_vendor="AlmaLinux" os_version="10" os_arch="x86_64" config="pool/PHP_7.2.34_22/php72-rhel10-x86_64.inf3" />
+                <build os_name="Linux" os_vendor="CloudLinux" os_version="10" os_arch="x86_64" config="pool/PHP_7.2.34_22/php72-rhel10-x86_64.inf3" />
 	</release>
 
 	<release id="PHP72_17" name="PHP v 7.2" version="7.2.34">

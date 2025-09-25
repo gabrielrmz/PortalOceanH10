@@ -5,9 +5,11 @@
 		<compatibility_info>
 			<compatible product_id="plesk" from_version="18.0.56" to_version="18.0.99" />
 		</compatibility_info>
+                <build os_name="Linux" os_vendor="AlmaLinux" os_version="10" os_arch="x86_64" config="PHP70_17/php70-rhel10-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="AlmaLinux" os_version="8" os_arch="x86_64" config="PHP70_17/php70-rhel8-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="AlmaLinux" os_version="9" os_arch="x86_64" config="PHP70_17/php70-rhel9-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="CentOS" os_version="8" os_arch="x86_64" config="PHP70_17/php70-rhel8-x86_64.inf3" />
+                <build os_name="Linux" os_vendor="CloudLinux" os_version="10" os_arch="x86_64" config="PHP70_17/php70-rhel10-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="CloudLinux" os_version="8" os_arch="x86_64" config="PHP70_17/php70-rhel8-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="CloudLinux" os_version="9" os_arch="x86_64" config="PHP70_17/php70-rhel9-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="RedHat" os_version="el8" os_arch="x86_64" config="PHP70_17/php70-rhel8-x86_64.inf3" />

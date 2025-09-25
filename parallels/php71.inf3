@@ -5,6 +5,8 @@
 		<compatibility_info>
 			<compatible product_id="plesk" from_version="18.0.56" to_version="18.0.99" />
 		</compatibility_info>
+                <build os_name="Linux" os_vendor="AlmaLinux" os_version="10" os_arch="x86_64" config="pool/PHP_7.1.33_14/php71-rhel10-x86_64.inf3" />
+                <build os_name="Linux" os_vendor="CloudLinux" os_version="10" os_arch="x86_64" config="pool/PHP_7.1.33_14/php71-rhel10-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="Debian" os_version="11.0" os_arch="x86_64" config="pool/PHP_7.1.33_14/php71-deb11.0-x86_64.inf3" />
 		<build os_name="Linux" os_vendor="Ubuntu" os_version="22.04" os_arch="x86_64" config="pool/PHP_7.1.33_14/php71-ubt22.04-x86_64.inf3" />
 	</release>

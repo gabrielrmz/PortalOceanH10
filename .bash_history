@@ -621,3 +621,208 @@ git pull
 cd
 docker compose restart
 docker compose ps
+ls
+docker compose ps
+git add .
+git commit -m "asdasd"
+ls
+git push
+docker compose volume ls
+docker volume ls
+docker volume inspect root_telegraf_data
+cd /var/lib/docker/volumes/root_telegraf_data/_data
+git add .
+git commit -m "asdads"
+git remote
+git -v
+git remote -v
+ls
+nano telegraf.conf
+git add .
+git commit -m "asdad"
+git push 
+ls
+cd
+ls
+nando docker-compose.yml
+nano docker-compose.yml
+docker compose restart telegraf
+docker compose ps
+nano docker-compose.yml
+nano prometheus/prometheus.yml
+docker compose logs telegraf
+docker volume ls
+docker volume inspect root_telegraf_data
+cd "/var/lib/docker/volumes/root_telegraf_data/_data"
+ls
+nano telegraf.
+nano telegraf.conf
+git add .
+git commit -m "asasd"
+git push 
+ls
+docker compose restart telegraf
+docker compose ps
+mysql -h 198.215.78.242 -u prometheus -p
+ping google.com
+ping 198.215.78.242
+mysql -h 198.215.78.242 -u prometheus -p
+mysql -u prometheus@198.215.78242 -p
+mysql -u prometheus@198.215.78.242 -p
+mysql h 198.251.78.242 -u prometheus -P Corpoh1Omysql -u prometheus@198.215.78.242 -p!
+mysql -h 198.251.78.242 -u prometheus -p Corpoh10mysql h 198.251.78.242 -u prometheus -P Corpoh1Omysql -u prometheus@198.215.78.242 -p!!
+mysql -h 198.251.78.242 -u prometheus -p Corpoh10mysql h 198.251.78.242 -u prometheus -P Corpoh1Omysql -u prometheus@19
+mysql -h 198.251.78.242 -u prometheus -p Corpoh10mysql -h 198.251.78.242 -u prometheus -p Corpoh10mysql h 198.251.78.242 -u prometheus -P Corpoh1Omysql -u prometheus@19!
+mysql -h 198.251.78.242 -u prometheus -p
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose down telegraf
+docker compose up -d
+docker compose ps
+docker compose down telegraf
+docker compose up -d
+dokcer compose ps
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose down telegraf
+docker compose up -d
+docker compose ps
+docker compose logs telegraf
+mysql -h 192.151.78242 -u prometheus -p
+mysql -h 192.151.78.242 -u prometheus -p
+mysql -h 198.251.78.242 -u prometheus -p
+docker compose down telegraf
+docker compose up -d
+docker compose ps
+docker compose down telegraf
+docker compose up -d
+docker compose ps
+docker compose logs telegraf
+docker compose down telegraf
+docker compose up -d
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose restart status
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose logs telegraf
+docker compose restart telegraf
+docker compose ps
+git add .
+git commit -m "asdad"
+git push 
+docker volume ls
+docker volume inspect root_telegraf_data
+cd /var/lib/docker/volumes/root_telegraf_data/_data
+ls
+nano telegraf.conf
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose logs telegraf
+docker compose restart telegraf
+docker compose ps
+df -h
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+mysql -h 198.251.78.242 -u prometheus -p'31&76nDxy' -D admin_oceanapp -e 'SELECT estado, id_habitacion FROM revision_habitaciones'
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker exec telegraf telegraf --version
+docker compose restart telegraf
+docker compose ps
+docker compose logs telegraf
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose logs telegraf
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+curl http://localhost:9273/metrics | grep "chale"
+curl http://telegraf:9273/metrics | grep "chale"
+docker compose restart telegraf
+docker compose ps
+docker compose logs telegraf
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker compose restart telegraf
+docker compose ps
+docker exec -it telegraf sh -c 'mysql -h 198.251.78.242 -u prometheus -p"31&76nDxy" -D admin_oceanapp -e "SELECT id_revision FROM revision_habitaciones"'
+docker compose ps
+docker volume inspect 
+docker volume inspect root_telegraf_data
+cd /var/lib/docker/volumes/root_telegraf_data/_data
+ls
+nano telegraf.conf
+ls
+nano process_revisions.sh
+ls
+chmod +x process_revisions.sh
+ls
+nano telegraf.conf
+ls
+rm -rf process_revisions.sh
+nano telegraf.conf
+cd /var/www/vhosts/dev.oceanbyh10.com/
+ls
+chmod +x backup-agent-installer-USA-Linux.sh 
+./backup-agent-installer-USA-Linux.sh 
+/var/www/vhosts/portal-admin.oceanbyh10.com/.phpenv/shims/php artisan app:portalcautivo-command
+cd /var/www/vhosts/portal-admin.oceanbyh10.com
+cd admin
+php 8.3 artisan app:portalcautivo-command
+php8.3 artisan app:portalcautivo-command
+php8.1 artisan app:portalcautivo-command
+php artisan app:portalcautivo-command
+/var/www/vhosts/portal-admin.oceanbyh10.com/.phpenv/shims/php artisan app:portalcautivo-command
+ls
+docker compose ps

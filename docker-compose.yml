@@ -84,3 +84,14 @@ services:
       - interna
     depends_on:
       - radius-mysql
+
+  snmp-exporter:
+    container_name: snmp-exporter
+    image: prom/snmp-exporter
+    volumes:
+      - ./snmp/:/etc/prometheus/snmp/
+    networks:
+      - interna
+    restart: always
+    command:
+      - '--config.file=/etc/prometheus/snmp/snmp.yml'      

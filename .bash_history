@@ -826,3 +826,46 @@ php artisan app:portalcautivo-command
 /var/www/vhosts/portal-admin.oceanbyh10.com/.phpenv/shims/php artisan app:portalcautivo-command
 ls
 docker compose ps
+df -h
+htop
+docker compose ps
+git remote -v
+git add .
+git commit -m "asdasd"
+git push
+ls
+git pull
+docker compose down prometheus
+docker compose up -d
+docker compose ps
+git pull
+docker compose up -d
+docker compose ps
+git add .
+git commit -m "asdasd"
+ls
+cd snmp/
+ls
+nano snmp.yml
+ls
+cd ..
+ls
+cd prometheus/
+ls
+nano prometheus.yml 
+docker compose down prometheus
+docker compose down snmp-exporter
+docker compose up -d
+docker compose ps
+ls
+docker compose ps
+cd ..
+git add .
+git commit -m "asdasd"
+git push
+ls
+docker volume ls
+docker volume inspect root_telegraf_data
+cd /var/lib/docker/volumes/root_telegraf_data/_data
+ls
+nano telegraf.conf

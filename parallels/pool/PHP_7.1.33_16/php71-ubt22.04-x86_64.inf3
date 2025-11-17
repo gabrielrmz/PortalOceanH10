@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<build confver="3.11" os_name="Linux" os_vendor="Ubuntu" os_version="22.04" os_release_name="jammy" os_arch="x86_64" environment="" build_dir="dist-deb-Ubuntu-22.04-x86_64" send_feedback="true" uninstall_support="yes" gpgcheck="yes" persistent_repo="true" yum_repo_id="PLESK_17_PHP71" yum_repo_name="PHP 7.1" apt_source="" persistent_apt_source="pool/PHP_7.1.33_16 jammy all">
+    <product id="php71">
+        <keypackages>
+            <keypackage>plesk-php71</keypackage>
+        </keypackages>
+        <release id="PHP_7_1" name="PHP v 7.1" version="7.1.33" upgrade_allowed_from="" />
+    </product>
+    <component name="php7.1" description="PHP 7.1 (outdated)" classes="vendor=parallels">
+        <keypackages>
+            <keypackage name="plesk-php71" />
+        </keypackages>
+        <package name="plesk-php71" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="433028" buildtime="0" md5="10db550208e7f40ff3acc56178080172" arch="amd64" />
+        <package name="plesk-php71-bcmath" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-bcmath_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="13688" buildtime="0" md5="aea1ea928014ed46a5f1d567592530e4" arch="amd64" />
+        <package name="plesk-php71-cli" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-cli_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="2841956" buildtime="0" md5="735941925551d24b3a4a598688d76eec" arch="amd64" />
+        <package name="plesk-php71-dba" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-dba_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="19424" buildtime="0" md5="abc3bf7ad0462516043d4d271b15f97c" arch="amd64" />
+        <package name="plesk-php71-enchant" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-enchant_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="7680" buildtime="0" md5="edb32504d43cbb9b7832fdbf12945c2d" arch="amd64" />
+        <package name="plesk-php71-fpm" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-fpm_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="1630564" buildtime="0" md5="e5e441b5d28e877d5c11f1b5ba231236" arch="amd64" />
+        <package name="plesk-php71-gd" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-gd_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="93676" buildtime="0" md5="93f1286de5021185e408ea6d03496547" arch="amd64" />
+        <package name="plesk-php71-imagick" version="3.4.3" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-imagick_3.4.3-ubuntu.22.04.250924.1527_amd64.deb" size="91872" buildtime="0" md5="4476cb9210a1f628883c742cd1f1124a" arch="amd64" />
+        <package name="plesk-php71-imap" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-imap_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="28540" buildtime="0" md5="c086c27d709655cf8a6b74b4dffdc2c1" arch="amd64" />
+        <package name="plesk-php71-intl" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-intl_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="128588" buildtime="0" md5="86bd4d16cd804088d22255486deb9868" arch="amd64" />
+        <package name="plesk-php71-ioncube-loader" version="14.4.0" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-ioncube-loader_14.4.0-ubuntu.22.04.250924.1527_amd64.deb" size="460696" buildtime="0" md5="737c83b1fc706b8c61aa8b0df9a784e3" arch="amd64" />
+        <package name="plesk-php71-ldap" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-ldap_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="20644" buildtime="0" md5="a70ce47c33d4cdd1ec3f45e375a1a326" arch="amd64" />
+        <package name="plesk-php71-mbstring" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-mbstring_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="445600" buildtime="0" md5="3e899613dccc168b59a70d9512ab0b82" arch="amd64" />
+        <package name="plesk-php71-mcrypt" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-mcrypt_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="13224" buildtime="0" md5="c71951201f327098df716fcf7611f80f" arch="amd64" />
+        <package name="plesk-php71-mysql" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-mysql_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="117844" buildtime="0" md5="058ce02519d98e4ca73b5ba413978358" arch="amd64" />
+        <package name="plesk-php71-odbc" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-odbc_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="29652" buildtime="0" md5="f29bb6981329ebe0a22a9b60c324fb3d" arch="amd64" />
+        <package name="plesk-php71-opcache" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-opcache_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="147656" buildtime="0" md5="c2a2ad863410b9c3671e2c0de2ba9a0c" arch="amd64" />
+        <package name="plesk-php71-pdo" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-pdo_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="582136" buildtime="0" md5="a985fe2c6b5eaf97e05dd7e74ce3a31a" arch="amd64" />
+        <package name="plesk-php71-pear" version="1.10.1" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-pear_1.10.1-ubuntu.22.04.250924.1527_all.deb" size="266984" buildtime="0" md5="67a005d546df156c396154d3f76bfb37" arch="all" />
+        <package name="plesk-php71-pgsql" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-pgsql_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="53756" buildtime="0" md5="07ff8cfb2f19226d7cd65c241b77b0a4" arch="amd64" />
+        <package name="plesk-php71-process" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-process_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="17752" buildtime="0" md5="7998df682e1ad1f800131b2706967632" arch="amd64" />
+        <package name="plesk-php71-pspell" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-pspell_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="7232" buildtime="0" md5="e30b953910f602371a9f86288e873327" arch="amd64" />
+        <package name="plesk-php71-redis" version="3.0.0" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-redis_3.0.0-ubuntu.22.04.250924.1527_amd64.deb" size="115036" buildtime="0" md5="8411c49896e858cfd38e4364a9b12a73" arch="amd64" />
+        <package name="plesk-php71-snmp" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-snmp_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="17784" buildtime="0" md5="bdc5a2afe037f17104c903fbea9e9e78" arch="amd64" />
+        <package name="plesk-php71-soap" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-soap_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="118900" buildtime="0" md5="1b6c137ffa3b44bd34994a72ade652a4" arch="amd64" />
+        <package name="plesk-php71-sodium" version="2.0.13" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-sodium_2.0.13-ubuntu.22.04.250924.1527_amd64.deb" size="23168" buildtime="0" md5="66590b5ab2fda36e6ead8672d1463d1d" arch="amd64" />
+        <package name="plesk-php71-tidy" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-tidy_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="16060" buildtime="0" md5="e22c717f3e5938a5d495855966fb1a54" arch="amd64" />
+        <package name="plesk-php71-xdebug" version="2.5.0" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-xdebug_2.5.0-ubuntu.22.04.250924.1527_amd64.deb" size="90348" buildtime="0" md5="87ad1c9d16d4be8adc6d4624d8698892" arch="amd64" />
+        <package name="plesk-php71-xml" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-xml_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="70520" buildtime="0" md5="cb391764b63f21992f7f79370dced142" arch="amd64" />
+        <package name="plesk-php71-xmlrpc" version="7.1.33" release="ubuntu.22.04.250924.1527" file="packages/plesk-php71-xmlrpc_7.1.33-ubuntu.22.04.250924.1527_amd64.deb" size="30160" buildtime="0" md5="7734903f3652ad924b23b19575d0af79" arch="amd64" />
+    </component>
+    <updates updates_dir="update-deb-Ubuntu-22.04-x86_64" headers_file="" />
+    <thirdparty thirdparty_dir="thirdparty-deb-Ubuntu-22.04-x86_64" />
+    <force_remove_packages />
+</build>

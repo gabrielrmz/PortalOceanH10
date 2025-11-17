@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<build confver="3.11" os_name="Linux" os_vendor="Ubuntu" os_version="22.04" os_release_name="jammy" os_arch="x86_64" environment="" build_dir="dist-deb-Ubuntu-22.04-x86_64" send_feedback="true" uninstall_support="yes" gpgcheck="yes" persistent_repo="true" yum_repo_id="PLESK_17_PHP72" yum_repo_name="PHP 7.2" apt_source="" persistent_apt_source="pool/PHP_7.2.34_26 jammy all">
+    <product id="php72">
+        <keypackages>
+            <keypackage>plesk-php72</keypackage>
+        </keypackages>
+        <release id="PHP_7_2" name="PHP v 7.2" version="7.2.34" upgrade_allowed_from="" />
+    </product>
+    <component name="php7.2" description="PHP 7.2 (outdated)" classes="vendor=parallels">
+        <keypackages>
+            <keypackage name="plesk-php72" />
+        </keypackages>
+        <package name="plesk-php72" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="473124" buildtime="0" md5="170ca4542a6e543f3feb8a4635fcdfce" arch="amd64" />
+        <package name="plesk-php72-bcmath" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-bcmath_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="14104" buildtime="0" md5="5de07cbfd22d42eb3f57979546dc8f93" arch="amd64" />
+        <package name="plesk-php72-cli" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-cli_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="2994400" buildtime="0" md5="820361ad428249aacb98f6683b4fee11" arch="amd64" />
+        <package name="plesk-php72-dba" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-dba_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="19404" buildtime="0" md5="8d3e875e4efc9a00f702431a23d9dab4" arch="amd64" />
+        <package name="plesk-php72-enchant" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-enchant_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="7688" buildtime="0" md5="b82d597392901208e0dc104c16101c50" arch="amd64" />
+        <package name="plesk-php72-fpm" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-fpm_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="1731256" buildtime="0" md5="5598796fe0e8eeb4f46804f0d7bef66e" arch="amd64" />
+        <package name="plesk-php72-gd" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-gd_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="99056" buildtime="0" md5="2c5a75402c8ad5fd0c9fc762c5722381" arch="amd64" />
+        <package name="plesk-php72-imagick" version="3.4.4" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-imagick_3.4.4-ubuntu.22.04.251015.0904_amd64.deb" size="91864" buildtime="0" md5="84846b9c64c31f3e876f6889f37e2461" arch="amd64" />
+        <package name="plesk-php72-imap" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-imap_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="28568" buildtime="0" md5="98d3628aef795db7a119874f235fedba" arch="amd64" />
+        <package name="plesk-php72-intl" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-intl_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="129492" buildtime="0" md5="2dacb0aeef7553ea971dc1ef04c32681" arch="amd64" />
+        <package name="plesk-php72-ioncube-loader" version="14.4.0" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-ioncube-loader_14.4.0-ubuntu.22.04.251015.0904_amd64.deb" size="468640" buildtime="0" md5="e52c51e7054c5630e72d4e04b16d82b3" arch="amd64" />
+        <package name="plesk-php72-ldap" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-ldap_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="22880" buildtime="0" md5="beeb6feb1dc554871a53381710fa2ac1" arch="amd64" />
+        <package name="plesk-php72-mbstring" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-mbstring_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="469628" buildtime="0" md5="7dacbbcc4ed72630f6eb40e2ef63ce56" arch="amd64" />
+        <package name="plesk-php72-mysql" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-mysql_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="118756" buildtime="0" md5="adc49b5baf4f7d27985ff44bcb6b9c00" arch="amd64" />
+        <package name="plesk-php72-odbc" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-odbc_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="29700" buildtime="0" md5="681632ce094f7541a0e07f02784f058a" arch="amd64" />
+        <package name="plesk-php72-opcache" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-opcache_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="166308" buildtime="0" md5="41fd4786ca43a0a371085a4becc55050" arch="amd64" />
+        <package name="plesk-php72-pdo" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-pdo_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="583752" buildtime="0" md5="13eda47fe11d283053dc1910ebc1af93" arch="amd64" />
+        <package name="plesk-php72-pear" version="1.10.12" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-pear_1.10.12-ubuntu.22.04.251015.0904_all.deb" size="271848" buildtime="0" md5="4613e21c161bc63135e1ceb741863aa1" arch="all" />
+        <package name="plesk-php72-pgsql" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-pgsql_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="53968" buildtime="0" md5="b9b2f767faa99bad4e164ef627a62096" arch="amd64" />
+        <package name="plesk-php72-process" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-process_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="18772" buildtime="0" md5="dbc2c7da6caa3c55381188a91293f6ca" arch="amd64" />
+        <package name="plesk-php72-pspell" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-pspell_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="7252" buildtime="0" md5="b69c14524978733d941397c4874ab43f" arch="amd64" />
+        <package name="plesk-php72-redis" version="5.3.2" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-redis_5.3.2-ubuntu.22.04.251015.0904_amd64.deb" size="145100" buildtime="0" md5="a42449af5f289635a553aab94de1113c" arch="amd64" />
+        <package name="plesk-php72-snmp" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-snmp_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="17604" buildtime="0" md5="8d270edf726194582c8331d2dcace5cd" arch="amd64" />
+        <package name="plesk-php72-soap" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-soap_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="118728" buildtime="0" md5="d57a8003c2610e8d8850906f4be387a9" arch="amd64" />
+        <package name="plesk-php72-sodium" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-sodium_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="21884" buildtime="0" md5="b690e80cd7125f8452465e67005425f7" arch="amd64" />
+        <package name="plesk-php72-tidy" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-tidy_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="16084" buildtime="0" md5="cba85f4fe7ae72ac3a377b45f4fa9e03" arch="amd64" />
+        <package name="plesk-php72-xdebug" version="3.0.0" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-xdebug_3.0.0-ubuntu.22.04.251015.0904_amd64.deb" size="115200" buildtime="0" md5="08e6789043284e9fe1dea98f1a81d276" arch="amd64" />
+        <package name="plesk-php72-xml" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-xml_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="70420" buildtime="0" md5="6462df705d4967a9f116d50e4674426a" arch="amd64" />
+        <package name="plesk-php72-xmlrpc" version="1:7.2.34" release="ubuntu.22.04.251015.0904" file="packages/plesk-php72-xmlrpc_7.2.34-ubuntu.22.04.251015.0904_amd64.deb" size="30188" buildtime="0" md5="98e1154b116cfd97f624c51519bb4cc0" arch="amd64" />
+    </component>
+    <updates updates_dir="update-deb-Ubuntu-22.04-x86_64" headers_file="" />
+    <thirdparty thirdparty_dir="thirdparty-deb-Ubuntu-22.04-x86_64" />
+    <force_remove_packages />
+</build>

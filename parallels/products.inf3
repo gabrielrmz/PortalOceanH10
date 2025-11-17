@@ -2,17 +2,18 @@
 <vendors>
   <vendor id="swsoft">
     <products>
+      <product id="plesk" name="Plesk" reference="pool/PSA_18.0.74_17897/release.inf3" release-key="plesk-18.0.74"/>
+      <product id="plesk" name="Plesk" reference="pool/PSA_18.0.73_17725/release.inf3" release-key="plesk-18.0.73"/>
       <product id="plesk" name="Plesk" reference="pool/PSA_18.0.72_17583/release.inf3" release-key="plesk-18.0.72"/>
       <product id="plesk" name="Plesk" reference="pool/PSA_18.0.71_17351/release.inf3" release-key="plesk-18.0.71"/>
       <product id="plesk" name="Plesk" reference="pool/PSA_18.0.70_17357/release.inf3" release-key="plesk-18.0.70"/>
       <product id="plesk" name="Plesk" reference="pool/PSA_18.0.69_17010/release.inf3" release-key="plesk-18.0.69"/>
-      <addon id="wpb-18.0.69" name="WPB 18.0.69" reference="pool/WPB_18.0.69_87/release.inf3"/>
+      <addon id="wpb-18.0.69" name="WPB 18.0.69" reference="pool/WPB_18.0.69_88/release.inf3"/>
       <product id="plesk" name="Plesk" reference="pool/PSA_18.0.68_16616/release.inf3" release-key="plesk-18.0.68"/>
       <addon id="php84" name="PHP v 8.4" reference="PHP84_17/release.inf3"/>
       <product id="plesk" name="Plesk" reference="pool/PSA_18.0.67_16409/release.inf3" release-key="plesk-18.0.67"/>
       <product id="plesk" name="Plesk" reference="pool/PSA_18.0.66_16134/release.inf3" release-key="plesk-18.0.66"/>
       <product id="plesk" name="Plesk" reference="pool/PSA_18.0.65_15919/release.inf3" release-key="plesk-18.0.65"/>
-      <product id="plesk" name="Plesk" reference="pool/PSA_18.0.64_15680/release.inf3" release-key="plesk-18.0.64"/>
       <addon id="wpb-18.0.59" name="WPB 18.0.59" reference="pool/WPB_18.0.59_78/release.inf3"/>
       <addon id="php83" name="PHP v 8.3" reference="PHP83_17/release.inf3"/>
       <addon id="php83" name="PHP v 8.3 (EOL OSes)" reference="php83.inf3"/>

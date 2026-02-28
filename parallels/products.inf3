@@ -2,8 +2,11 @@
 <vendors>
   <vendor id="swsoft">
     <products>
-      <product id="plesk" name="Plesk" reference="pool/PSA_18.0.74_17897/release.inf3" release-key="plesk-18.0.74"/>
-      <product id="plesk" name="Plesk" reference="pool/PSA_18.0.73_17725/release.inf3" release-key="plesk-18.0.73"/>
+      <product id="plesk" name="Plesk" reference="pool/PSA_18.0.76_18469/release.inf3" release-key="plesk-18.0.76"/>
+      <product id="plesk" name="Plesk" reference="pool/PSA_18.0.75_18480/release.inf3" release-key="plesk-18.0.75"/>
+      <addon id="php85" name="PHP v 8.5" reference="PHP85_17/release.inf3"/>
+      <product id="plesk" name="Plesk" reference="pool/PSA_18.0.74_18022/release.inf3" release-key="plesk-18.0.74"/>
+      <product id="plesk" name="Plesk" reference="pool/PSA_18.0.73_17971/release.inf3" release-key="plesk-18.0.73"/>
       <product id="plesk" name="Plesk" reference="pool/PSA_18.0.72_17583/release.inf3" release-key="plesk-18.0.72"/>
       <product id="plesk" name="Plesk" reference="pool/PSA_18.0.71_17351/release.inf3" release-key="plesk-18.0.71"/>
       <product id="plesk" name="Plesk" reference="pool/PSA_18.0.70_17357/release.inf3" release-key="plesk-18.0.70"/>

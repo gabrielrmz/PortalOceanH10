@@ -33,6 +33,11 @@ scrape_configs:
           service: 'PORTAL-MK'
           sitio: 'OMR'
           proveedornat: 'TotalPlay'
+      - targets: ['63.245.105.134:161']
+        labels:
+          service: 'PORTAL-MK'
+          sitio: 'OCM'
+          proveedornat: 'Abix'
     metrics_path: /snmp
     params:
      module: [MK]

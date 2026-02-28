@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <addon id="php83" name="PHP v 8.3">
 
-	<release id="PHP_8_3" name="PHP v 8.3" version="8.3.27">
+	<release id="PHP_8_3" name="PHP v 8.3" version="8.3.30">
 		<compatibility_info>
 			<compatible product_id="plesk" from_version="18.0.57" to_version="18.0.99" />
 		</compatibility_info>

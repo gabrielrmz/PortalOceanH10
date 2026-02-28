@@ -869,3 +869,28 @@ docker volume inspect root_telegraf_data
 cd /var/lib/docker/volumes/root_telegraf_data/_data
 ls
 nano telegraf.conf
+df -h
+ls
+docker compose ps
+git remote -v
+git add .
+git commit -m "asdad"
+git push 
+ls
+docker compose ps
+docker volume inspect telegraf
+docker volume ls
+ls
+cd prometheus/
+ls
+nano prometheus.yml 
+docker compose restart prometheus
+docker compose ps
+df -h
+ls
+docker compose ps
+docker compose down prometheus
+docker volume ls
+docker volume rm root_prometheus_data
+docker compose up -d
+docker compose ps

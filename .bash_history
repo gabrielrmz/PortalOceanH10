@@ -894,3 +894,12 @@ docker volume ls
 docker volume rm root_prometheus_data
 docker compose up -d
 docker compose ps
+ls
+nano prometheus/prometheus.yml 
+docker compose restart prometheus
+ls
+df -h
+git remote -v
+git add .
+git commit -m "asdasd"
+git push 

@@ -903,3 +903,14 @@ git remote -v
 git add .
 git commit -m "asdasd"
 git push 
+ls
+df -h
+git remote -v
+git add .
+git commit -m "assd"
+git push
+git remote -v
+docker compose ps
+git pull
+docker compose restart snmp-exporter
+docker compose ps
